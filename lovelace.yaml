@@ -1,0 +1,17 @@
+mode: yaml
+resources: !include lovelace/resources.yaml
+dashboards:
+  main-dashboard:
+    mode: yaml
+    filename: lovelace/ui.yaml
+    title: Main
+    icon: mdi:view-carousel
+    show_in_sidebar: true
+    require_admin: false
+  floorplan-dashboard:
+    mode: yaml
+    filename: lovelace/floorplan/home.yaml
+    title: Floorplan
+    icon: mdi:home
+    show_in_sidebar: true
+    require_admin: false

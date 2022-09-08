@@ -1,0 +1,190 @@
+views:
+  - theme: Backend-selected
+    badges: []
+    cards:
+      - show_current: true
+        show_forecast: true
+        type: weather-forecast
+        entity: weather.openweathermap
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            hours_to_show: 24
+            name: Living Room
+            show_legend: false
+            show:
+              name: true
+              legend: false
+              icon: false
+              labels: true
+            entities:
+              - entity: sensor.lumi_lumi_weather_5d9dd307_temperature
+          - type: custom:mini-graph-card
+            hours_to_show: 24
+            name: Entrance
+            show_legend: false
+            show:
+              name: true
+              legend: false
+              icon: false
+              labels: true
+            entities:
+              - entity: sensor.lumi_lumi_weather_ce71e507_temperature
+          - type: custom:mini-graph-card
+            hours_to_show: 24
+            name: Bathroom
+            show_legend: false
+            show:
+              name: true
+              legend: false
+              icon: false
+              labels: true
+            entities:
+              - entity: sensor.lumi_lumi_weather_bda0d307_temperature
+      - type: custom:mushroom-light-card
+        entity: light.yeelight_lights
+        use_light_color: true
+        show_brightness_control: true
+        show_color_temp_control: false
+        show_color_control: true
+        fill_container: false
+        name: Lights
+      - type: custom:mushroom-media-player-card
+        entity: media_player.spotify_gruber
+        use_media_info: true
+        show_volume_level: true
+        fill_container: false
+        secondary_info: state
+        volume_controls:
+          - volume_mute
+          - volume_buttons
+          - volume_set
+        media_controls:
+          - on_off
+          - shuffle
+          - previous
+          - next
+          - play_pause_stop
+          - repeat
+        collapsible_controls: false
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: entity
+            entity: sun.sun
+            use_entity_picture: false
+            tap_action:
+              action: more-info
+          - type: entity
+            entity: sensor.speedtest_download
+            content_info: state
+            use_entity_picture: false
+            tap_action:
+              action: more-info
+          - type: entity
+            entity: sensor.speedtest_upload
+            tap_action:
+              action: more-info
+            icon: mdi:speedometer-slow
+          - type: entity
+            entity: media_player.samsung_au8000_50_tv_2
+            icon: mdi:television
+            use_entity_picture: false
+            content_info: state
+            tap_action:
+              action: call-service
+              service: script.send_tv_power
+              service_data: {}
+              target: {}
+      - type: entities
+        entities:
+          - entity: sensor.steam_76561198014466820
+          - entity: sensor.rodrigos_iphone_battery_level
+          - entity: device_tracker.gruber
+            name: Gruber's iPhone Presence
+          - entity: sensor.rpgruber
+      - type: custom:simple-thermostat
+        entity: climate.home_ac
+        layout:
+          mode:
+            names: true
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.smart_plug_power
+            name: Infrastructure Power
+            hours_to_show: 140
+            aggregate_func: avg
+            animate: true
+            group_by: date
+            show:
+              graph: bar
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.smart_plug_2_power
+            name: Computer Power
+            hours_to_show: 140
+            aggregate_func: avg
+            animate: true
+            group_by: date
+            show:
+              graph: bar
+      - camera_view: live
+        type: picture-glance
+        entities: []
+        camera_image: camera.home_camera
+        theme: Mushroom
+      - type: entities
+        entities:
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_c51b0908_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_on_off
+          - entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_62db0608_on_off
+        title: Doors
+      - type: custom:mushroom-entity-card
+        entity: device_tracker.rodrigos_iphone_2
+        icon_type: icon
+        hold_action:
+          action: more-info
+        secondary_info: state
+        primary_info: name
+        name: iPhone Gruber
+        tap_action:
+          action: more-info
+        fill_container: false
+        layout: horizontal
+      - type: entities
+        entities:
+          - entity: binary_sensor.lumi_lumi_sensor_motion_aq2_8df9e007_ias_zone
+          - entity: binary_sensor.lumi_lumi_sensor_motion_aq2_8df9e007_occupancy
+          - entity: binary_sensor.lumi_lumi_sensor_motion_aq2_7909e107_ias_zone
+          - entity: binary_sensor.lumi_lumi_sensor_motion_aq2_7909e107_occupancy
+          - entity: binary_sensor.lumi_lumi_sensor_motion_aq2_8cf9e007_ias_zone
+          - entity: binary_sensor.lumi_lumi_sensor_motion_aq2_8cf9e007_occupancy
+        title: Motion Detectors
+      - type: custom:apexcharts-card
+        header:
+          show: true
+          title: Brightness
+          show_states: true
+          colorize_states: true
+        series:
+          - entity: sensor.lumi_lumi_sensor_motion_aq2_8df9e007_illuminance
+          - entity: sensor.lumi_lumi_sensor_motion_aq2_7909e107_illuminance
+            type: column
+      - type: custom:mini-graph-card
+        entities:
+          - entity: sensor.lumi_lumi_sensor_motion_aq2_8df9e007_illuminance
+            name: Verandah
+          - entity: sensor.lumi_lumi_sensor_motion_aq2_7909e107_illuminance
+            type: column
+            name: Lounge
+          - color: gray
+            entity: sun.sun
+            name: Night
+            show_line: false
+            show_points: false
+            show_legend: false
+            y_axis: secondary
+        show:
+          labels: true
+          labels_secondary: true

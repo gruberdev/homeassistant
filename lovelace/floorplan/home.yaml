@@ -1,0 +1,28 @@
+title: Mainframe
+views:
+  - theme: Google Dark Theme
+    title: Floorplan
+    path: floorplan
+    type: panel
+    badges: []
+    cards:
+      - type: custom:floorplan-card
+        full_height: true
+        show_side_bar: false
+        show_app_header: false
+        config:
+          image: /config/lovelace/floorplan/home.svg
+          stylesheet: /config/lovelace/floorplan/stylesheet.css
+          log_level: info
+          console_log_level: info
+          defaults:
+            hover_action: hover-info
+            tap_action: more-info
+          rules:
+            - entity: light.yeelight_lights
+              element: light.yeelight_lights
+              state_action:
+                action: call-service
+                service: floorplan.image_set
+                service_data: /local/floorplan/examples/home/light_${entity.state}.svg
+              tap_action: toggle

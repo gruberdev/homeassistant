@@ -1,0 +1,185 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+person:
+  - name: Rodrigo Gruber
+    id: gruber_real
+    device_trackers:
+      - device_tracker.iphone_13_mini_gruber
+      - device_tracker.rodrigos_iphone
+      - device_tracker.macbook
+      - device_tracker.rodrigos_iphone_2
+      - device_tracker.windows_desktop
+      - device_tracker.gruber
+recorder:
+  db_url: !secret external_database
+  purge_keep_days: 180
+
+# Sun integration w/ elevation values
+sun:
+  elevation: !secret ha_elevation
+# Lovelace dedicated configuration file
+lovelace: !include lovelace.yaml
+# Automated auto-discovery devices
+discovery:
+# SmartIR Integration
+smartir:
+# FFmpeg Integration
+ffmpeg:
+# Map Integration
+map:
+# Stream Integration for the Camera
+stream:
+# https://www.home-assistant.io/integrations/system_health/
+system_health:
+logger:
+  default: error
+# View all events in a logbook
+logbook:
+
+# Vultr VPS Cloud Integration
+vultr:
+  api_key: !secret vultr_api_key
+
+camera:
+  - name: Home Camera
+    platform: ffmpeg
+    input: -rtsp_transport tcp -i rtsp://100.109.36.92:8140/home-cam
+
+media_player:
+  - platform: smartir
+    name: Living room TV
+    unique_id: tv
+    device_code: 1061
+    controller_data: remote.rm4_pro_remote
+    power_sensor: binary_sensor.tv_power
+
+climate:
+  - platform: smartir
+    name: Home AC
+    unique_id: ac
+    device_code: 1180
+    controller_data: remote.rm4_pro_remote
+    temperature_sensor: sensor.lumi_lumi_weather_5d9dd307_temperature
+    humidity_sensor: sensor.lumi_lumi_weather_5d9dd307_humidity
+    power_sensor: binary_sensor.ac_power
+
+ifttt:
+  key: !secret ifttt_api_key
+
+homeassistant:
+  name: Mainframe
+  latitude: !secret ha_latitude
+  longitude: !secret ha_longitude
+  elevation: !secret ha_elevation
+  unit_system: metric
+  temperature_unit: C
+  time_zone: America/Sao_Paulo
+  currency: BRL
+  customize: !include customize.yaml
+
+  # Customize entities matching a pattern
+  customize_glob:
+    "sensor.lumi_lumi_weather_*_temperature":
+      icon: mdi:thermometer
+
+light:
+  - platform: group
+    name: "Yeelight Lights"
+    entities:
+      - light.yeelight_color4_0x123e1046
+      - light.yeelight_strip6_0x13f2ddcb
+      - light.yeelight_color4_0x13f2130d
+      - light.yeelight_strip8_0x19eba68d
+
+samsungtv:
+  - host: !secret tv_ipv4
+    turn_on_action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: !secret tv_mac
+
+device_tracker:
+  - platform: icloud3
+    username: !secret icloud_username
+    password: !secret icloud_password
+  - platform: iphonedetect
+    consider_home: 60
+    new_device_defaults:
+      track_new_devices: true
+    hosts:
+      Gruber: 192.168.1.36
+  - platform: bluetooth_le_tracker
+    track_new_devices: true
+    interval_seconds: 60
+  - platform: bluetooth_tracker
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+accuweather:
+  api_key: !secret accuweather_api_key
+  latitude: !secret ha_latitude
+  longitude: !secret ha_longitude
+  name: Accuweather Forecast
+
+# Example configuration.yaml entry
+http:
+  server_host: 0.0.0.0
+  ip_ban_enabled: false
+  use_x_forwarded_for: true
+  trusted_proxies:
+    #Home IPs
+    - ::1
+    - 127.0.0.1
+    - 192.168.1.0/24
+    - 10.0.1.0/24
+    - 100.113.166.18
+    - !secret public_ip
+    #Cloudflare Ipv4 IP Ranges
+    - 173.245.48.0/20
+    - 103.21.244.0/22
+    - 103.22.200.0/22
+    - 103.31.4.0/22
+    - 141.101.64.0/18
+    - 108.162.192.0/18
+    - 190.93.240.0/20
+    - 188.114.96.0/20
+    - 197.234.240.0/22
+    - 198.41.128.0/17
+    - 162.158.0.0/15
+    - 104.16.0.0/13
+    - 104.24.0.0/14
+    - 172.64.0.0/13
+    - 131.0.72.0/22
+tts:
+  - platform: google_translate
+
+automation: !include_dir_merge_list automations
+sensor: !include_dir_merge_named sensors
+script: !include scripts.yaml
+scene: !include scenes.yaml
+frontend:
+  themes: !include_dir_merge_named themes
+
+notify:
+  - platform: ios
+  - name: "smtp2go"
+    platform: smtp
+    server: !secret smtp_server
+    port: 8025
+    timeout: 60
+    sender: !secret smtp_sender
+    encryption: starttls
+    username: !secret smtp_username
+    password: !secret smtp_password
+    recipient:
+      - !secret smtp_recipient1
+      - !secret smtp_recipient2
+    sender_name: "Home Assistant"

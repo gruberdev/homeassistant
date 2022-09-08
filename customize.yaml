@@ -1,0 +1,125 @@
+
+# Temperature Sensors
+sensor.lumi_lumi_weather_ce71e507_temperature:
+  friendly_name: Entry Door Temperature
+  device_class: temperature
+  unit_of_measurement: "°C"
+sensor.lumi_lumi_weather_5d9dd307_temperature:
+  friendly_name: Living Room Temperature
+  device_class: temperature
+  unit_of_measurement: "°C"
+sensor.lumi_lumi_weather_bda0d307_temperature:
+  friendly_name: Bathroom Temperature
+  device_class: temperature
+  unit_of_measurement: "°C"
+sensor.lumi_lumi_weather_bda0d307_humidity:
+  friendly_name: Bathroom Humidity
+  device_class: humidity
+sensor.lumi_lumi_weather_5d9dd307_humidity:
+  friendly_name: Living Room Humidity
+  device_class: humidity
+sensor.lumi_lumi_weather_ce71e507_humidity:
+  friendly_name: Entry Door Humidity
+  device_class: humidity
+
+
+# Contact Sensors
+binary_sensor.lumi_lumi_sensor_magnet_aq2_c51b0908_on_off:
+  friendly_name: Bathroom Door
+  device_class: door
+binary_sensor.lumi_lumi_sensor_magnet_aq2_on_off:
+  friendly_name: Fridge Door
+  device_class: door
+binary_sensor.lumi_lumi_sensor_magnet_aq2_62db0608_on_off:
+  friendly_name: Front Door
+  device_class: door
+
+# Motion sensors
+binary_sensor.lumi_lumi_sensor_motion_aq2_8df9e007_ias_zone:
+  friendly_name: Liveroom Motion
+  device_class: motion
+binary_sensor.lumi_lumi_sensor_motion_aq2_8cf9e007_occupancy:
+  friendly_name: Kitchen Occupancy
+  device_class: presence
+binary_sensor.lumi_lumi_sensor_motion_aq2_8df9e007_occupancy:
+  friendly_name: Liveroom Occupancy
+  device_class: presence
+binary_sensor.lumi_lumi_sensor_motion_aq2_7909e107_occupancy:
+  friendly_name: Bedroom Occupancy
+  device_class: presence
+binary_sensor.aqara_lumi_motion_ac01_occupancy:
+  friendly_name: Liveroom mmWave Occupancy
+  device_class: presence
+
+binary_sensor.lumi_lumi_sensor_motion_aq2_8cf9e007_ias_zone:
+  friendly_name: Kitchen motion
+  device_class: motion
+binary_sensor.lumi_lumi_sensor_motion_aq2_7909e107_ias_zone:
+  friendly_name: Bedroom motion
+  device_class: motion
+
+# Aqara Curtain Motors
+cover.lumi_lumi_curtain_hagl04_cover:
+  friendly_name: Curtain Liveroom R
+  device_class: curtain
+
+# Brightness sensors
+sensor.lumi_lumi_sensor_motion_aq2_8df9e007_illuminance:
+  friendly_name: Liveroom Brightness
+  device_class: illuminance
+  unit_of_measurement: "lx"
+sensor.lumi_lumi_sensor_motion_aq2_8cf9e007_illuminance:
+  friendly_name: Kitchen Brightness
+  device_class: illuminance
+  unit_of_measurement: "lx"
+sensor.lumi_lumi_sensor_motion_aq2_7909e107_illuminance:
+  friendly_name: Bedroom Brightness
+  device_class: illuminance
+  unit_of_measurement: "lx"
+
+# Unifi Device Trackers
+device_tracker.ap_lite:
+  friendly_name: Unifi AP AC Lite Tracker
+device_tracker.ap_nanohd:
+  friendly_name: Unifi AP NanoHD Tracker
+
+# Yeelight Lamps
+light.yeelight_color4_0x13f2130d:
+  friendly_name: Kitchen LED Yeelight Lamp
+  device_class: light
+light.yeelight_strip6_0x13f2ddcb:
+  friendly_name: Underdesk LED Yeelight Lamp
+  device_class: light
+light.yeelight_color4_0x123e1046:
+  friendly_name: Bedroom LED Yeelight Lamp
+  device_class: light
+light.yeelight_strip8_0x19eba68d:
+  friendly_name: Bedroom LED Yeelight Pro Strip
+  device_class: light
+
+# Electricity Smart Plugs
+sensor.smart_plug_2_power:
+  friendly_name: Computer Plug Power
+  device_class: power
+  unit_of_measurement: "W"
+sensor.smart_plug_power:
+  friendly_name: Infrastructure Plug Power
+  device_class: power
+  unit_of_measurement: "W"
+sensor.smart_plug_2_voltage:
+  friendly_name: Infrastructure Plug Voltage
+  device_class: voltage
+  unit_of_measurement: "V"
+sensor.smart_plug_voltage:
+  friendly_name: Computer Plug Voltage
+  device_class: voltage
+  unit_of_measurement: "V"
+sensor.smart_plug_2_current:
+  friendly_name: Infrastructure Plug Current
+  device_class: current
+  unit_of_measurement: "A"
+sensor.smart_plug_current:
+  friendly_name: Computer Plug Current
+  device_class: current
+  unit_of_measurement: "A"
+

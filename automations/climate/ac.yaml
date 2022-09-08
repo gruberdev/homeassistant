@@ -1,0 +1,95 @@
+
+- id: 'ac_block_bathroom_door'
+  alias: Prevent the A/C from being turned on if the bathroom door is open
+  trigger:
+    - platform: state
+      entity_id: climate.home_ac
+      from: 'off'
+      not_to: 'off'
+      for:
+        seconds: 10
+  condition:
+    - condition: state
+      entity_id: binary_sensor.lumi_lumi_sensor_magnet_aq2_c51b0908_on_off # Bathroom door
+      state: "on"
+  action:
+    - service: climate.turn_off
+      target:
+        entity_id: climate.home_ac
+    - service: persistent_notification.create
+      data:
+        message: "The bathroom door is open. Please close it before turning on the A/C."
+        title: "Warning: An action was blocked"
+
+- id: 'ac_block_bathroom_door_open'
+  alias: Turn off the A/C after it has been turned on, and the bathroom door was opened.
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.lumi_lumi_sensor_magnet_aq2_c51b0908_on_off
+      from: 'off'
+      to: 'on'
+      for:
+        seconds: 10
+  condition:
+    not:
+      - condition: state
+        entity_id: climate.home_ac
+        state: "off"
+  action:
+    - service: climate.turn_off
+      target:
+        entity_id: climate.home_ac
+    - service: persistent_notification.create
+      data:
+        message: "The bathroom door was open recently. Please close it before turning on the A/C."
+        title: "Warning: An action was triggered"
+
+
+###############
+# Frontdoor ###
+###############
+
+- id: 'ac_block_front_door'
+  alias: Prevent the A/C from being turned on if the frontdoor is open
+  trigger:
+    - platform: state
+      entity_id: climate.home_ac
+      from: 'off'
+      not_to: 'off'
+      for:
+        seconds: 10
+  condition:
+    - condition: state
+      entity_id: binary_sensor.lumi_lumi_sensor_magnet_aq2_62db0608_on_off
+      state: "on"
+  action:
+    - service: climate.turn_off
+      target:
+        entity_id: climate.home_ac
+    - service: persistent_notification.create
+      data:
+        message: "The front door is open. Please close it before turning on the A/C."
+        title: "Warning: An action was blocked"
+
+- id: 'ac_block_front_door_open'
+  alias: Turn off the A/C after it has been turned on, and the front door was opened.
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.lumi_lumi_sensor_magnet_aq2_62db0608_on_off
+      from: 'off'
+      to: 'on'
+      for:
+        seconds: 10
+  condition:
+    not:
+      - condition: state
+        entity_id: climate.home_ac
+        state: "off"
+  action:
+    - service: climate.turn_off
+      target:
+        entity_id: climate.home_ac
+    - service: persistent_notification.create
+      data:
+        message: "The house's front door was open recently. Please close it before turning on the A/C."
+        title: "Warning: An action was triggered"

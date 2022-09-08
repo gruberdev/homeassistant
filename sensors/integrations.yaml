@@ -1,0 +1,38 @@
+- platform: steam_online
+  api_key: !secret steam_api_key
+  accounts:
+    - 76561198014466820
+
+- platform: lastfm
+  api_key: !secret lastfm_api_key
+  users:
+    - rpgruber
+
+- platform: twitch
+  client_id: !secret twitch_client_id
+  client_secret: !secret twitch_client_secret
+  token: !secret twitch_token
+  channels:
+    - xqc
+    - hasanabi
+
+- platform: unifigateway
+  host: !secret unifi_host
+  port: 8443
+  username: admin
+  password: !secret unifi_password
+  monitored_conditions:
+    - www
+    - wlan
+    - alerts
+    - firmware
+
+- platform: alpha_vantage
+  api_key: !secret alpha_vantage_api_key
+  symbols:
+    - symbol: GOOGL
+      name: Google
+  foreign_exchange:
+    - name: USD_EUR
+      from: USD
+      to: EUR
