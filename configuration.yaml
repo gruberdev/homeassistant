@@ -1,9 +1,8 @@
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-
 person:
-  - name: Rodrigo Gruber
+  - name: Gruber
     id: gruber_real
     device_trackers:
       - device_tracker.iphone_13_mini_gruber
@@ -19,16 +18,22 @@ recorder:
 # Sun integration w/ elevation values
 sun:
   elevation: !secret ha_elevation
+  
 # Lovelace dedicated configuration file
 lovelace: !include lovelace.yaml
+
 # Automated auto-discovery devices
 discovery:
+
 # SmartIR Integration
 smartir:
+
 # FFmpeg Integration
 ffmpeg:
+
 # Map Integration
 map:
+
 # Stream Integration for the Camera
 stream:
 # https://www.home-assistant.io/integrations/system_health/
