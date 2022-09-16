@@ -163,6 +163,8 @@ http:
     - 104.24.0.0/14
     - 172.64.0.0/13
     - 131.0.72.0/22
+    # Tailscale network
+    - 100.64.0.0/10
 tts:
   - platform: google_translate
 
