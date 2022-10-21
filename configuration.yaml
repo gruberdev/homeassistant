@@ -11,9 +11,9 @@ person:
       - device_tracker.rodrigos_iphone_2
       - device_tracker.windows_desktop
       - device_tracker.gruber
-recorder:
-  db_url: !secret external_database
-  purge_keep_days: 180
+# recorder:
+#   db_url: !secret external_database
+#   purge_keep_days: 180
 
 # Sun integration w/ elevation values
 sun:
@@ -38,10 +38,10 @@ map:
 stream:
 # https://www.home-assistant.io/integrations/system_health/
 system_health:
-logger:
-  default: error
-# View all events in a logbook
-logbook:
+# logger:
+#   default: error
+# # View all events in a logbook
+# logbook:
 
 # Vultr VPS Cloud Integration
 vultr:
