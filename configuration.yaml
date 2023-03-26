@@ -11,9 +11,9 @@ person:
       - device_tracker.rodrigos_iphone_2
       - device_tracker.windows_desktop
       - device_tracker.gruber
-# recorder:
-#   db_url: !secret external_database
-#   purge_keep_days: 180
+recorder:
+  db_url: !secret external_database
+  purge_keep_days: 180
 
 # Sun integration w/ elevation values
 sun:
@@ -50,7 +50,7 @@ vultr:
 camera:
   - name: Home Camera
     platform: ffmpeg
-    input: -rtsp_transport tcp -i rtsp://100.109.36.92:8140/home-cam
+    input: -rtsp_transport tcp -i rtsp://wyze-bridge.homeassistant.svc.cluster.local/home-cam
 
 # media_player:
 #   - platform: smartir
