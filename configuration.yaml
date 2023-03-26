@@ -50,7 +50,7 @@ vultr:
 camera:
   - name: Home Camera
     platform: ffmpeg
-    input: -rtsp_transport tcp -i rtsp://wyze-bridge.homeassistant.svc.cluster.local/home-cam
+    input: -rtsp_transport tcp -i rtsp://wyze-bridge.homeassistant.svc.cluster.local:8554/office-cam
 
 # media_player:
 #   - platform: smartir
