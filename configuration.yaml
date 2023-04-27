@@ -26,7 +26,7 @@ lovelace: !include lovelace.yaml
 discovery:
 
 # SmartIR Integration
-# smartir:
+smartir:
 
 # FFmpeg Integration
 ffmpeg:
@@ -52,23 +52,23 @@ camera:
     platform: ffmpeg
     input: -rtsp_transport tcp -i rtsp://wyze-bridge.homeassistant.svc.cluster.local:8554/office-cam
 
-# media_player:
-#   - platform: smartir
-#     name: Living room TV
-#     unique_id: tv
-#     device_code: 1061
-#     controller_data: remote.rm4_pro_remote
-#     power_sensor: binary_sensor.tv_power
+media_player:
+  - platform: smartir
+    name: Living room TV
+    unique_id: tv
+    device_code: 1061
+    controller_data: remote.rm4_pro_remote
+    power_sensor: binary_sensor.tv_power
 
-# climate:
-#   - platform: smartir
-#     name: Home AC
-#     unique_id: ac
-#     device_code: 1180
-#     controller_data: remote.rm4_pro_remote
-#     temperature_sensor: sensor.lumi_lumi_weather_5d9dd307_temperature
-#     humidity_sensor: sensor.lumi_lumi_weather_5d9dd307_humidity
-#     power_sensor: binary_sensor.ac_power
+climate:
+  - platform: smartir
+    name: Home AC
+    unique_id: ac
+    device_code: 1180
+    controller_data: remote.rm4_pro_remote
+    temperature_sensor: sensor.lumi_lumi_weather_temperature_2
+    humidity_sensor: sensor.lumi_lumi_weather_humidity_2
+    power_sensor: binary_sensor.ac_power
 
 
 # ifttt:
@@ -99,27 +99,27 @@ light:
       - light.yeelight_color4_0x13f2130d
       - light.yeelight_strip8_0x19eba68d
 
-# samsungtv:
-#   - host: !secret tv_ipv4
-#     turn_on_action:
-#       - service: wake_on_lan.send_magic_packet
-#         data:
+#samsungtv:
+ # - host: !secret tv_ipv4
+ #   turn_on_action:
+ #     - service: wake_on_lan.send_magic_packet
+#       data:
 #           mac: !secret tv_mac
 
-# device_tracker:
-#   - platform: icloud3
-#     username: !secret icloud_username
-#     password: !secret icloud_password
-#   - platform: iphonedetect
-#     consider_home: 60
-#     new_device_defaults:
-#       track_new_devices: true
-#     hosts:
-#       Gruber: 192.168.1.36
-#   - platform: bluetooth_le_tracker
-#     track_new_devices: true
-#     interval_seconds: 60
-#   - platform: bluetooth_tracker
+device_tracker:
+  - platform: icloud3
+    username: !secret icloud_username
+    password: !secret icloud_password
+  - platform: iphonedetect
+    consider_home: 60
+    new_device_defaults:
+      track_new_devices: true
+    hosts:
+      Gruber: 192.168.1.36
+  - platform: bluetooth_le_tracker
+    track_new_devices: true
+    interval_seconds: 60
+  - platform: bluetooth_tracker
 
 speedtestdotnet:
   scan_interval:
