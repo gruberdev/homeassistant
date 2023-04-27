@@ -115,7 +115,7 @@ device_tracker:
     new_device_defaults:
       track_new_devices: true
     hosts:
-      Gruber: 192.168.1.36
+      Gruber: 192.168.1.9
   - platform: bluetooth_le_tracker
     track_new_devices: true
     interval_seconds: 60
