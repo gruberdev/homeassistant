@@ -48,7 +48,7 @@ system_health:
 camera:
   - name: Home Camera
     platform: ffmpeg
-    input: -rtsp_transport tcp -i rtsp://wyze-bridge.homeassistant.svc.cluster.local:8554/living-room-cam
+    input: -rtsp_transport tcp -i rtsp://wyze-bridge.homeassistant.svc.cluster.local:8554/studiocam
 
 media_player:
   - platform: smartir
