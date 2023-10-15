@@ -16,8 +16,6 @@ recorder:
   purge_keep_days: 180
 
 # Sun integration w/ elevation values
-sun:
-  elevation: !secret ha_elevation
 
 # Lovelace dedicated configuration file
 lovelace: !include lovelace.yaml
@@ -44,8 +42,8 @@ system_health:
 # logbook:
 
 # Vultr VPS Cloud Integration
-vultr:
-  api_key: !secret vultr_api_key
+# vultr:
+#   api_key: !secret vultr_api_key
 
 camera:
   - name: Home Camera
@@ -120,20 +118,6 @@ device_tracker:
     track_new_devices: true
     interval_seconds: 60
   - platform: bluetooth_tracker
-
-speedtestdotnet:
-  scan_interval:
-    minutes: 30
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-
-accuweather:
-  api_key: !secret accuweather_api_key
-  latitude: !secret ha_latitude
-  longitude: !secret ha_longitude
-  name: Accuweather Forecast
 
 # Example configuration.yaml entry
 http:
