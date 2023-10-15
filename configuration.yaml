@@ -48,7 +48,7 @@ system_health:
 camera:
   - name: Home Camera
     platform: ffmpeg
-    input: -rtsp_transport tcp -i rtsp://wyze-bridge.homeassistant.svc.cluster.local:8554/office-cam
+    input: -rtsp_transport tcp -i rtsp://wyze-bridge.homeassistant.svc.cluster.local:8554/living-room-cam
 
 media_player:
   - platform: smartir
@@ -67,7 +67,6 @@ climate:
     temperature_sensor: sensor.lumi_lumi_weather_temperature_2
     humidity_sensor: sensor.lumi_lumi_weather_humidity_2
     power_sensor: binary_sensor.ac_power
-
 
 # ifttt:
 #  key: !secret ifttt_api_key

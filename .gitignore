@@ -56,4 +56,3 @@ production_auth.json
 *.log.fault
 **.log.1
 .history
-.vscod
