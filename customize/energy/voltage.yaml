@@ -1,0 +1,8 @@
+sensor.smart_plug_2_voltage:
+  friendly_name: Infrastructure Plug Voltage
+  device_class: voltage
+  unit_of_measurement: "V"
+sensor.smart_plug_voltage:
+  friendly_name: Computer Plug Voltage
+  device_class: voltage
+  unit_of_measurement: "V"

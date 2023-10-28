@@ -1,0 +1,13 @@
+
+sensor.lumi_lumi_sensor_motion_aq2_illuminance:
+  friendly_name: Living Room Brightness
+  device_class: illuminance
+  unit_of_measurement: "lx"
+sensor.lumi_lumi_sensor_motion_aq2_illuminance_2:
+  friendly_name: Kitchen Brightness
+  device_class: illuminance
+  unit_of_measurement: "lx"
+sensor.lumi_lumi_sensor_motion_aq2_illuminance_3:
+  friendly_name: Bedroom Brightness
+  device_class: illuminance
+  unit_of_measurement: "lx"

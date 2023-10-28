@@ -77,29 +77,35 @@ homeassistant:
   temperature_unit: C
   time_zone: America/Sao_Paulo
   currency: BRL
-  customize: !include customize.yaml
+  customize: !include_dir_merge_list customize/
 
   # Customize entities matching a pattern
   customize_glob:
     "sensor.lumi_lumi_weather_*_temperature":
       icon: mdi:thermometer
+    "light.*":
+      icon: mdi:lightbulb-outline
+    "sensor.lumi_lumi_weather_humidity_*":
+      icon: mdi:water
+    "binary_sensor.lumi_lumi_sensor_motion_aq2_occupancy_*":
+      icon: mdi:motion-sensor
 
 light:
   - platform: group
     name: "Home Lights"
     entities:
-      - light.yeelight_color4_0x123e1046
-      - light.yeelight_strip6_0x13f2ddcb
-      - light.yeelight_color4_0x13f2130d
       - light.yeelight_strip8_0x19eba68d
+      - light.yeelight_color4_0x123e1046
+      - light.yeelight_color4_0x13f2130d
+      - light.yeelight_strip6_0x13f2ddcb
       - light.philips_strip3_4a09_light
 
-#samsungtv:
- # - host: !secret tv_ipv4
- #   turn_on_action:
- #     - service: wake_on_lan.send_magic_packet
-#       data:
-#           mac: !secret tv_mac
+samsungtv:
+  - host: !secret tv_ipv4
+    turn_on_action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: !secret tv_mac
 
 device_tracker:
   - platform: iphonedetect
