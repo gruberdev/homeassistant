@@ -22,14 +22,10 @@ lovelace: !include lovelace.yaml
 
 # SmartIR Integration
 smartir:
-
 # FFmpeg Integration
 ffmpeg:
-
 # Map Integration
 map:
-
-# Stream Integration for the Camera
 stream:
 # https://www.home-assistant.io/integrations/system_health/
 system_health:
@@ -100,13 +96,6 @@ light:
       - light.yeelight_strip6_0x13f2ddcb
       - light.philips_strip3_4a09_light
 
-samsungtv:
-  - host: !secret tv_ipv4
-    turn_on_action:
-      - service: wake_on_lan.send_magic_packet
-        data:
-          mac: !secret tv_mac
-
 device_tracker:
   - platform: iphonedetect
     consider_home: 60
@@ -115,7 +104,6 @@ device_tracker:
     hosts:
       Gruber: 192.168.1.9
 
-# Example configuration.yaml entry
 http:
   server_host: 0.0.0.0
   ip_ban_enabled: false
