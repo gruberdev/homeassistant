@@ -77,7 +77,7 @@ homeassistant:
   temperature_unit: C
   time_zone: America/Sao_Paulo
   currency: BRL
-  customize: !include_dir_merge_list customize
+  customize: !include_dir_merge_named customize/
 
   # Customize entities matching a pattern
   customize_glob:

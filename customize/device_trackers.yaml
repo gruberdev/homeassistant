@@ -1,9 +1,9 @@
 # Unifi Device Trackers
-- device_tracker.uap_nanohd:
-    friendly_name: Unifi AP NanoHD Tracker
-- device_tracker.samsung_tv:
-    friendly_name: Unifi AP Samsung TV connectivity
-- device_tracker.usg_3p:
-    friendly_name: Unifi USG connectivity
-- device_tracker.us_8_60w:
-    friendly_name: Unifi controller switch connectivity
+device_tracker.uap_nanohd:
+  friendly_name: Unifi AP NanoHD Tracker
+device_tracker.samsung_tv:
+  friendly_name: Unifi AP Samsung TV connectivity
+device_tracker.usg_3p:
+  friendly_name: Unifi USG connectivity
+device_tracker.us_8_60w:
+  friendly_name: Unifi controller switch connectivity
