@@ -1,16 +1,16 @@
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-person:
-  - name: Gruber
-    id: gruber_real
-    device_trackers:
-      - device_tracker.iphone_13_mini_gruber
-      - device_tracker.rodrigos_iphone
-      - device_tracker.macbook
-      - device_tracker.rodrigos_iphone_2
-      - device_tracker.windows_desktop
-      - device_tracker.gruber
+# person:
+#   - name: Gruber
+#     id: gruber_real
+#     device_trackers:
+#       - device_tracker.iphone_13_mini_gruber
+#       - device_tracker.rodrigos_iphone
+#       - device_tracker.macbook
+#       - device_tracker.rodrigos_iphone_2
+#       - device_tracker.windows_desktop
+#       - device_tracker.gruber
 recorder:
   db_url: !secret external_database
   purge_keep_days: 180
@@ -19,9 +19,6 @@ recorder:
 
 # Lovelace dedicated configuration file
 lovelace: !include lovelace.yaml
-
-# Automated auto-discovery devices
-discovery:
 
 # SmartIR Integration
 smartir:
@@ -89,12 +86,13 @@ homeassistant:
 
 light:
   - platform: group
-    name: "Yeelight Lights"
+    name: "Home Lights"
     entities:
       - light.yeelight_color4_0x123e1046
       - light.yeelight_strip6_0x13f2ddcb
       - light.yeelight_color4_0x13f2130d
       - light.yeelight_strip8_0x19eba68d
+      - light.philips_strip3_4a09_light
 
 #samsungtv:
  # - host: !secret tv_ipv4
@@ -104,19 +102,12 @@ light:
 #           mac: !secret tv_mac
 
 device_tracker:
-  - platform: icloud3
-    username: !secret icloud_username
-    password: !secret icloud_password
   - platform: iphonedetect
     consider_home: 60
     new_device_defaults:
       track_new_devices: true
     hosts:
       Gruber: 192.168.1.9
-  - platform: bluetooth_le_tracker
-    track_new_devices: true
-    interval_seconds: 60
-  - platform: bluetooth_tracker
 
 # Example configuration.yaml entry
 http:
