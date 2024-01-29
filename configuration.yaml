@@ -1,4 +1,3 @@
-
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 # person:
@@ -104,10 +103,15 @@ device_tracker:
     hosts:
       Gruber: 192.168.1.9
 
+api:
+
 http:
   server_host: 0.0.0.0
   ip_ban_enabled: false
   use_x_forwarded_for: true
+  cors_allowed_origins:
+    - "*"
+    - http://home.gruber.dev.br
   trusted_proxies:
     #Home IPs
     - ::1
@@ -143,7 +147,6 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 frontend:
   themes: !include_dir_merge_named themes
-
 # notify:
 #   - platform: ios
 #   - name: "smtp2go"
