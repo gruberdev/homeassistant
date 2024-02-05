@@ -43,6 +43,9 @@ logger:
     homeassistant.components.media_player: error
     homeassistant.components.alarm_control_panel: error
     homeassistant.components.climate: error
+    homeassistant.components.humidifier: error
+    homeassistant.components.device_tracker: error
+    homeassistant.helpers.entity: error
 
 #View all events in a logbook
 # logbook:
