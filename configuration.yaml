@@ -23,6 +23,7 @@ lovelace: !include lovelace.yaml
 smartir:
 # Powercalc Integration
 powercalc:
+  enable_autodiscovery: true
 # FFmpeg Integration
 ffmpeg:
 # Map Integration
@@ -30,9 +31,14 @@ map:
 stream:
 # https://www.home-assistant.io/integrations/system_health/
 system_health:
-# logger:
-#   default: error
-# # View all events in a logbook
+logger:
+  default: warning
+  logs:
+    custom_components.hacs: error
+    custom_components.smartir: error
+    custom_components.xiaomi_miot: error
+
+#View all events in a logbook
 # logbook:
 
 # Vultr VPS Cloud Integration
