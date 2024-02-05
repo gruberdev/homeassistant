@@ -21,6 +21,8 @@ lovelace: !include lovelace.yaml
 
 # SmartIR Integration
 smartir:
+# Powercalc Integration
+powercalc:
 # FFmpeg Integration
 ffmpeg:
 # Map Integration
@@ -56,8 +58,8 @@ climate:
     unique_id: ac
     device_code: 1180
     controller_data: remote.rm4_pro
-    temperature_sensor: sensor.lumi_lumi_weather_temperature_2
-    humidity_sensor: sensor.lumi_lumi_weather_humidity_2
+    temperature_sensor: sensor.entrydoor_weather_temperature_3
+    humidity_sensor: sensor.entrydoor_weather_humidity_3
     power_sensor: binary_sensor.ac_power
 
 # ifttt:
