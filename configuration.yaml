@@ -38,6 +38,7 @@ logger:
     custom_components.smartir: error
     custom_components.xiaomi_miot: error
     custom_components.device_tracker: error
+    custom_components.samsungtv_smart: debug
     homeassistant.loader: fatal
     homeassistant.const: error
     homeassistant.components.media_player: error
@@ -101,6 +102,10 @@ homeassistant:
       icon: mdi:water
     "binary_sensor.lumi_lumi_sensor_motion_aq2_occupancy_*":
       icon: mdi:motion-sensor
+
+samsungtv_smart:
+  - host: 192.168.1.7
+    app_list: '{"Jellyfin": "AprZAARz4r.Jellyfin", "Twitch": "3202203026841", "Crunchyroll": "qXuEoRvlCp.Crunchyroll"}'
 
 light:
   - platform: group
