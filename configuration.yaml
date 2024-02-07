@@ -68,7 +68,7 @@ media_player:
     controller_data: remote.rm4_pro
     power_sensor: binary_sensor.tv_power
   - platform: samsungtv_tizen
-    host: !secret tv_ipva4
+    host: !secret tv_ipv4
     mac: !secret tv_mac
     app_list: '{"Jellyfin": "AprZAARz4r.Jellyfin", "Twitch": "3202203026841", "Crunchyroll": "qXuEoRvlCp.Crunchyroll"}'
 
