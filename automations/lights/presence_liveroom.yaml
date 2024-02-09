@@ -29,7 +29,7 @@
           - 201
         brightness: 101
       target:
-        entity_id: light.yeelight_lights
+        entity_id: light.home_lights
 
 - id: 'liveroom_lights_brightness'
   alias: Liveroom presence light automation
@@ -52,7 +52,7 @@
           - 201
         brightness: 190
       target:
-        entity_id: light.yeelight_lights
+        entity_id: light.home_lights
 
 - id: 'liveroom_lights_presence_dim_down_when_on_pc'
   alias: Liveroom presence (w/o Bedroom)
@@ -69,7 +69,7 @@
           - 201
         brightness: 160
       target:
-        entity_id: light.yeelight_lights
+        entity_id: light.home_lights
   condition:
     condition: and
     conditions:
@@ -104,7 +104,7 @@
           - 201
         brightness: 50
       target:
-        entity_id: light.yeelight_lights
+        entity_id: light.home_lights
   condition:
     condition: and
     conditions:
@@ -138,7 +138,7 @@
   action:
     - service: light.turn_off
       target:
-        entity_id: light.yeelight_lights
+        entity_id: light.home_lights
 
 - id: 'lights_brightness_off'
   alias: Turn the lights off based on room brightness
@@ -153,4 +153,4 @@
   action:
     - service: light.turn_off
       target:
-        entity_id: light.yeelight_lights
+        entity_id: light.home_lights
