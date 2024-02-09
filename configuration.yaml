@@ -59,6 +59,14 @@ camera:
   - name: Home Camera
     platform: ffmpeg
     input: -rtsp_transport tcp -i rtsp://wyze-bridge.homeassistant.svc.cluster.local:8554/studiocam
+  - platform: xiaomi_cloud_map_extractor
+    host: !secret cleaner_ipv4
+    token: !secret cleaner_token
+    username: !secret xiaomi_cloud_username
+    password: !secret xiaomi_cloud_password
+    draw: ["all"]
+    attributes:
+      - calibration_points
 
 media_player:
   - platform: smartir
