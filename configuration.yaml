@@ -64,6 +64,9 @@ camera:
     token: !secret cleaner_token
     username: !secret xiaomi_cloud_username
     password: !secret xiaomi_cloud_password
+    country: cn
+    store_map_image: true
+    force_api: xiaomi
     draw: ["all"]
     attributes:
       - calibration_points
