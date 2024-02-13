@@ -1,5 +1,4 @@
-mode: yaml
-resources: !include lovelace/resources.yaml
+mode: storage
 dashboards:
   main-dashboard:
     mode: yaml
