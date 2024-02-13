@@ -1,84 +1,84 @@
-- url: /hacsfiles/battery-state-card/battery-state-card.js
+- url: /www/community/battery-state-card/battery-state-card.js
   type: module
-- url: /hacsfiles/ha-floorplan/floorplan.js
+- url: /www/community/ha-floorplan/floorplan.js
   type: module
-- url: /hacsfiles/button-card/button-card.js
+- url: /www/community/button-card/button-card.js
   type: module
-- url: /hacsfiles/config-template-card/config-template-card.js
+- url: /www/community/config-template-card/config-template-card.js
   type: module
-- url: /hacsfiles/card-mod/card-mod.js
-  type: module
-- url: https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.js
-  type: module
-- url: /hacsfiles/apexcharts-card/apexcharts-card.js
-  type: module
-- url: /hacsfiles/simple-thermostat/simple-thermostat.js
-  type: module
-- url: /hacsfiles/lovelace-state-switch/state-switch.js
-  type: module
-- url: /hacsfiles/lovelace-more-info-card/more-info-card.js
-  type: module
-- url: /hacsfiles/button-text-card/button-text-card.js
-  type: module
-- url: /hacsfiles/tv-card/tv-card.js
+- url: /www/community/card-mod/card-mod.js
   type: module
 - url: https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.js
   type: module
-- url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+- url: /www/community/apexcharts-card/apexcharts-card.js
   type: module
-- url: /hacsfiles/lovelace-mushroom/mushroom.js
+- url: /www/community/simple-thermostat/simple-thermostat.js
   type: module
-- url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+- url: /www/community/lovelace-state-switch/state-switch.js
   type: module
-- url: /hacsfiles/history-explorer-card/history-explorer-card.js
+- url: /www/community/lovelace-more-info-card/more-info-card.js
   type: module
-- url: /hacsfiles/weather-card/weather-card.js
+- url: /www/community/button-text-card/button-text-card.js
   type: module
-- url: /hacsfiles/HACS-camect-custom_card/HACS-camect-custom_card.js
+- url: /www/community/tv-card/tv-card.js
   type: module
 - url: https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.js
   type: module
-- url: /hacsfiles/home-feed-card/lovelace-home-feed-card.js
+- url: /www/community/mini-graph-card/mini-graph-card-bundle.js
   type: module
-- url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
+- url: /www/community/lovelace-mushroom/mushroom.js
   type: module
-- url: /hacsfiles/surveillance-card/surveillance-card.js
+- url: /www/community/lovelace-multiple-entity-row/multiple-entity-row.js
   type: module
-- url: /hacsfiles/logbook-card/logbook-card.js
+- url: /www/community/history-explorer-card/history-explorer-card.js
   type: module
-- url: /hacsfiles/purifier-card/purifier-card.js
+- url: /www/community/weather-card/weather-card.js
   type: module
-- url: /hacsfiles/config-editor-card/config-editor-card.js
+- url: /www/community/HACS-camect-custom_card/HACS-camect-custom_card.js
   type: module
-- url: /hacsfiles/lovelace-swipe-navigation/swipe-navigation.js
+- url: https://cdn.jsdelivr.net/gh/bramkragten/custom-ui@master/swipe-card/swipe-card.js
   type: module
-- url: /hacsfiles/lovelace-valetudo-map-card/valetudo-map-card.js
+- url: /www/community/home-feed-card/lovelace-home-feed-card.js
   type: module
-- url: /hacsfiles/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
+- url: /www/community/vertical-stack-in-card/vertical-stack-in-card.js
   type: module
-- url: /hacsfiles/lovelace-time-picker-card/time-picker-card.js
+- url: /www/community/surveillance-card/surveillance-card.js
   type: module
-- url: /hacsfiles/uptime-card/uptime-card.js
+- url: /www/community/logbook-card/logbook-card.js
   type: module
-- url: /hacsfiles/restriction-card/restriction-card.js
+- url: /www/community/purifier-card/purifier-card.js
   type: module
-- url: /hacsfiles/vacuum-card/vacuum-card.js
+- url: /www/community/config-editor-card/config-editor-card.js
   type: module
-- url: /hacsfiles/scheduler-card/scheduler-card.js
+- url: /www/community/lovelace-swipe-navigation/swipe-navigation.js
   type: module
-- url: /hacsfiles/lovelace-qr-code-card/qr-code-card.js
+- url: /www/community/lovelace-valetudo-map-card/valetudo-map-card.js
   type: module
-- url: /hacsfiles/tailwindcss-template-card/dist/tailwindcss-template-card.js
+- url: /www/community/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
   type: module
-- url: /hacsfiles/lovelace-auto-entities/auto-entities.js
+- url: /www/community/lovelace-time-picker-card/time-picker-card.js
   type: module
-- url: /hacsfiles/honeycomb-menu/honeycomb-menu.js
+- url: /www/community/uptime-card/uptime-card.js
   type: module
-- url: /hacsfiles/search-card/search-card.js
+- url: /www/community/restriction-card/restriction-card.js
   type: module
-- url: /hacsfiles/my-cards/my-cards.js
+- url: /www/community/vacuum-card/vacuum-card.js
   type: module
-- url: /hacsfiles/expander-card/expander-card.js
+- url: /www/community/scheduler-card/scheduler-card.js
   type: module
-- url: /hacsfiles/hass-swipe-navigation/swipe-navigation.j
+- url: /www/community/lovelace-qr-code-card/qr-code-card.js
+  type: module
+- url: /www/community/tailwindcss-template-card/dist/tailwindcss-template-card.js
+  type: module
+- url: /www/community/lovelace-auto-entities/auto-entities.js
+  type: module
+- url: /www/community/honeycomb-menu/honeycomb-menu.js
+  type: module
+- url: /www/community/search-card/search-card.js
+  type: module
+- url: /www/community/my-cards/my-cards.js
+  type: module
+- url: /www/community/expander-card/expander-card.js
+  type: module
+- url: /www/community/hass-swipe-navigation/swipe-navigation.j
   type: module
