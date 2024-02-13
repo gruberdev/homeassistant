@@ -180,6 +180,8 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 frontend:
   themes: !include_dir_merge_named themes
+  extra_module_url:
+    - /config/www/community/custom-sidebar/custom-sidebar-yaml.js
 # notify:
 #   - platform: ios
 #   - name: "smtp2go"
