@@ -105,7 +105,21 @@ homeassistant:
   time_zone: America/Sao_Paulo
   currency: BRL
   customize: !include_dir_merge_named customize/
-
+  auth_providers:
+    - type: homeassistant
+    - type: trusted_networks
+      allow_bypass_login: true
+      trusted_networks:
+        - 10.43.0.0/16
+        - 2001:cafe:42:1::/112
+        - 10.42.0.0/16
+        - 2001:cafe:42:0::/56
+        - 192.168.1.0/24
+        - fd12:3456:789a:1::/64
+        # Tailscale network
+        - 100.64.0.0/10
+        - 127.0.0.1
+        - ::1
   # Customize entities matching a pattern
   customize_glob:
     "sensor.lumi_lumi_weather_*_temperature":
@@ -136,6 +150,8 @@ device_tracker:
       Gruber: 192.168.1.9
 
 api:
+
+prometheus:
 
 http:
   server_host: 0.0.0.0
@@ -170,6 +186,12 @@ http:
     - 131.0.72.0/22
     # Tailscale network
     - 100.64.0.0/10
+    # Kubernetes Internal IPs
+    - 10.43.0.0/16
+    - 2001:cafe:42:1::/112
+    - 10.42.0.0/16
+    - 2001:cafe:42:0::/56
+    - fd12:3456:789a:1::/64
 
 tts:
   - platform: google_translate
