@@ -1,0 +1,31 @@
+- id: "mute_tv_when_tts"
+
+  description: Mute the TV when OpenWakeDetect stars listening to a command
+  mode: single
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.microphone_assist_in_progress
+      attribute: "on"
+      from: "Off"
+  condition:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: media_player.samsungtv
+          state: "on"
+        - condition: state
+          entity_id: media_player.samsungtv
+          state: playing
+        - condition: state
+          entity_id: media_player.samsungtv
+          state: idle
+        - condition: state
+          entity_id: media_player.samsungtv
+          state: buffering
+  action:
+    - service: media_player.volume_mute
+      data:
+        is_volume_muted: true
+      target:
+        entity_id: media_player.samsungtv

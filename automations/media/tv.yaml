@@ -1,6 +1,6 @@
 - id: "computer_turnon_tv"
-  alias: Turn on the TV if I'm using the computer
-  description: ""
+  alias: 
+  description: Turn on the TV if I'm using the computer
   mode: single
   trigger:
     - platform: state
