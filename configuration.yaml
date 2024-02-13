@@ -160,6 +160,7 @@ http:
   cors_allowed_origins:
     - "*"
     - http://home.gruber.dev.br
+    - https://home.gruber.dev.br
   trusted_proxies:
     #Home IPs
     - ::1
@@ -168,7 +169,7 @@ http:
     - 10.0.1.0/24
     - 100.113.166.18
     - !secret public_ip
-    #Cloudflare Ipv4 IP Ranges
+    # Cloudflare Ipv4 IP Ranges
     - 173.245.48.0/20
     - 103.21.244.0/22
     - 103.22.200.0/22
