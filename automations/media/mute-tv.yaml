@@ -1,5 +1,5 @@
 - id: "mute_tv_when_tts"
-
+  alias: Mute TTV when TTS
   description: Mute the TV when OpenWakeDetect stars listening to a command
   mode: single
   trigger:

@@ -1,5 +1,5 @@
 - id: "computer_turnon_tv"
-  alias: 
+  alias: Turn On Computer
   description: Turn on the TV if I'm using the computer
   mode: single
   trigger:
