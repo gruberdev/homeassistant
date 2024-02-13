@@ -92,8 +92,8 @@ climate:
     humidity_sensor: sensor.entrydoor_weather_humidity_3
     power_sensor: binary_sensor.ac_power
 
-# ifttt:
-#  key: !secret ifttt_api_key
+ifttt:
+  key: !secret ifttt_api_key
 
 homeassistant:
   name: Mainframe
