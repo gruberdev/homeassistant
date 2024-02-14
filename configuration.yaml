@@ -120,7 +120,6 @@ homeassistant:
         - fd7a:115c:a1e0:ab12:4843::/64
         # Tailscale network
         - 100.64.0.0/10
-        - 100.88.0.0/10
         - 127.0.0.1
         - ::1
   # Customize entities matching a pattern
