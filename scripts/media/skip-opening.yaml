@@ -1,5 +1,6 @@
-- alias: Skip anime opening sequence (Netflix)
-  description: ""
+- id: "skip_anime_opening"
+  alias: Skip anime opening sequence (Netflix)
+  description: "Skips the anime opening"
   sequence:
     - service: remote.send_command
       metadata: {}
