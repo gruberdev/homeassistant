@@ -1,4 +1,4 @@
-- id: "skip_anime_opening"
+skip_anime_opening:
   alias: Skip anime opening sequence (Netflix)
   description: "Skips the anime opening"
   sequence:
