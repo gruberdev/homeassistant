@@ -6,26 +6,12 @@
     - platform: state
       entity_id:
         - binary_sensor.aqara_lumi_motion_ac01_occupancy
-      from: "off"
+      from: null
       to: "on"
       for:
         hours: 0
         minutes: 0
         seconds: 10
-    - platform: state
-      entity_id:
-        - binary_sensor.aqara_lumi_motion_ac01_occupancy
-      from: unavailable
-      to: "on"
-      for:
-        hours: 0
-        minutes: 0
-        seconds: 10
-    - platform: state
-      entity_id:
-        - binary_sensor.aqara_lumi_motion_ac01_occupancy
-      from: unknown
-      to: "off"
   condition:
     - condition: state
       entity_id: media_player.samsungtv
