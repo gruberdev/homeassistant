@@ -1,0 +1,42 @@
+- alias: Skip anime opening sequence (Netflix)
+  description: ""
+  sequence:
+    - service: remote.send_command
+      metadata: {}
+      data:
+        num_repeats: 1
+        delay_secs: 0.4
+        hold_secs: 0
+        command: KEY_UP
+      target:
+        entity_id: remote.samsung_au8000_50_tv
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 0
+        milliseconds: 300
+    - service: remote.send_command
+      metadata: {}
+      data:
+        num_repeats: 1
+        delay_secs: 0.4
+        hold_secs: 0
+        command: KEY_UP
+      target:
+        entity_id: remote.samsung_au8000_50_tv
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 0
+        milliseconds: 300
+    - service: remote.send_command
+      metadata: {}
+      data:
+        num_repeats: 1
+        delay_secs: 0.4
+        hold_secs: 0
+        command: KEY_ENTER
+      target:
+        entity_id: remote.samsung_au8000_50_tv
+  mode: single
+  icon: mdi:skip-next

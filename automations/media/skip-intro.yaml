@@ -1,0 +1,35 @@
+- id: "computer_turnon_tv"
+  alias: Skip anime opening
+  description: Skips the anime opening when requested
+  mode: single
+  trigger:
+    - platform: conversation
+      command:
+        - Skip intro
+        - Skip anime intro
+        - Skipe anime trailer
+        - Skip opening anime
+        - Skip opening
+        - Skip intro
+        - Please go ahead and skip it
+        - Go ahead and skip the opening
+        - Skip the opening
+        - Please skip  the opening movie
+  condition:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: media_player.samsungtv
+          state: "on"
+        - condition: state
+          entity_id: media_player.samsungtv
+          state: playing
+        - condition: state
+          entity_id: media_player.samsungtv
+          state: idle
+        - condition: state
+          entity_id: media_player.samsungtv
+          state: buffering
+  action:
+    - service: script.skip_intro_netflix
+      data: {}
