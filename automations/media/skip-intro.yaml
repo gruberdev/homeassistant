@@ -1,4 +1,4 @@
-- id: "computer_turnon_tv"
+- id: "skip_anime_op_tts"
   alias: Skip anime opening
   description: Skips the anime opening when requested
   mode: single
