@@ -14,7 +14,7 @@
         - Please go ahead and skip it
         - Go ahead and skip the opening
         - Skip the opening
-        - Please skip  the opening movie
+        - Please skip the opening movie
   condition:
     - condition: or
       conditions:

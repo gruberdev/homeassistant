@@ -1,17 +1,17 @@
-- id: "mute_tv_when_tts"
+- id: "unmute_tv_when_tts"
   alias: Mute TV when TTS
-  description: Mute the TV when OpenWakeDetect stars listening to a command
+  description: unmute the TV when OpenWakeDetect stars listening to a command
   mode: single
   trigger:
     - platform: state
       entity_id:
         - binary_sensor.microphone_assist_in_progress
-      from: null
-      to: "on"
+      from: "on"
+      to: "off"
       for:
         hours: 0
         minutes: 0
-        seconds: 3
+        seconds: 1
   condition:
     - condition: or
       conditions:
@@ -30,6 +30,6 @@
   action:
     - service: media_player.volume_mute
       data:
-        is_volume_muted: true
+        is_volume_muted: false
       target:
         entity_id: media_player.samsungtv
