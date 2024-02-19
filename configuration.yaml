@@ -28,7 +28,6 @@ powercalc:
 ffmpeg:
 # Map Integration
 map:
-stream:
 # https://www.home-assistant.io/integrations/system_health/
 system_health:
 logger:
@@ -59,6 +58,14 @@ camera:
   - name: Home Camera
     platform: ffmpeg
     input: -rtsp_transport tcp -i rtsp://wyze-bridge.homeassistant.svc.cluster.local:8554/studiocam
+  - name: Hall Camera
+    platform: ffmpeg
+    input: !secret hall_camera_uri
+  - name: Camera1
+    platform: proxy
+    entity_id: camera.wyze_bridge_homeassistant_svc_cluster_local
+    max_stream_width: 360
+    max_image_width: 720
   - name: Xiaomi Vacuum Map
     platform: xiaomi_cloud_map_extractor
     host: !secret cleaner_ipv4
@@ -69,6 +76,11 @@ camera:
     draw: ["all"]
     attributes:
       - calibration_points
+
+stream:
+  ll_hls: true
+  part_duration: 0.75
+  segment_duration: 6
 
 media_player:
   - platform: smartir
