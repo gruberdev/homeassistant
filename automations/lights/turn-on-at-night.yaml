@@ -1,0 +1,64 @@
+- id: "turn_lights_on_when_dark"
+  alias: Turn the lights on when motion is detected and it's dark
+  description: ""
+  mode: single
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.aqara_lumi_motion_ac01_occupancy
+        - binary_sensor.lumi_lumi_sensor_motion_aq2_occupancy_2
+        - binary_sensor.lumi_lumi_sensor_motion_aq2_occupancy
+      from: "off"
+      to: "on"
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 1
+    - platform: state
+      entity_id:
+        - binary_sensor.aqara_lumi_motion_ac01_occupancy
+        - binary_sensor.lumi_lumi_sensor_motion_aq2_occupancy_2
+        - binary_sensor.lumi_lumi_sensor_motion_aq2_occupancy
+      from: unavailable
+      to: "on"
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 3
+    - platform: state
+      entity_id:
+        - binary_sensor.aqara_lumi_motion_ac01_occupancy
+        - binary_sensor.lumi_lumi_sensor_motion_aq2_occupancy_2
+        - binary_sensor.lumi_lumi_sensor_motion_aq2_occupancy
+      from: unknown
+      to: "on"
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 10
+  condition:
+    - condition: and
+      conditions:
+        - condition: numeric_state
+          entity_id: input_number.night_time
+          below: 0.01
+          above: -0.01
+        - condition: state
+          entity_id: device_tracker.pixel_8_pro_4
+          state: home
+          for:
+            hours: 0
+            minutes: 0
+            seconds: 30
+  action:
+    - service: light.turn_on
+      metadata: {}
+      data:
+        transition: 29
+        rgb_color:
+          - 98
+          - 18
+          - 120
+        brightness_step: 79
+      target:
+        entity_id: light.home_lights

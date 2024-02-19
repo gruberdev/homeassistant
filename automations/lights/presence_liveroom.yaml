@@ -1,22 +1,18 @@
-
-- id: 'lights_on'
+- id: "lights_on"
   alias: Turn the lights on when the liveroom brightness fades
   trigger:
     - platform: numeric_state
-      entity_id: sensor.lumi_lumi_sensor_motion_aq2_8df9e007_illuminance
-      below: '20'
+      entity_id: lumi_lumi_sensor_motion_aq2_illuminance
+      below: "20"
   condition:
     condition: and
     conditions:
       - condition: numeric_state
-        entity_id: sensor.lumi_lumi_sensor_motion_aq2_8df9e007_illuminance
-        below: '50'
-      - condition: numeric_state
-        entity_id: sensor.lumi_lumi_sensor_motion_aq2_7909e107_illuminance
-        below: '50'
+        entity_id: sensor.lumi_lumi_sensor_motion_aq2_illuminance_2
+        below: "50"
       - condition: time
-        after: '16:00:00'
-        before: '02:30:00'
+        after: "16:00:00"
+        before: "02:30:00"
       - condition: state
         entity_id: sun.sun
         state: below_horizon
@@ -31,11 +27,11 @@
       target:
         entity_id: light.home_lights
 
-- id: 'liveroom_lights_brightness'
+- id: "liveroom_lights_brightness"
   alias: Liveroom presence light automation
   trigger:
     - platform: state
-      entity_id: binary_sensor.lumi_lumi_sensor_motion_aq2_8df9e007_occupancy
+      entity_id: binary_sensor.aqara_lumi_motion_ac01_occupancy
       to: "on"
   condition:
     condition: and
@@ -54,102 +50,19 @@
       target:
         entity_id: light.home_lights
 
-- id: 'liveroom_lights_presence_dim_down_when_on_pc'
-  alias: Liveroom presence (w/o Bedroom)
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.lumi_lumi_sensor_motion_aq2_8df9e007_occupancy
-      to: "off"
-  action:
-    - service: light.turn_on
-      data:
-        rgb_color:
-          - 200
-          - 111
-          - 201
-        brightness: 160
-      target:
-        entity_id: light.home_lights
-  condition:
-    condition: and
-    conditions:
-      - condition: numeric_state
-        entity_id: sensor.lumi_lumi_sensor_motion_aq2_8df9e007_illuminance
-        below: '50'
-      - condition: numeric_state
-        entity_id: sensor.lumi_lumi_sensor_motion_aq2_7909e107_illuminance
-        below: '50'
-      - condition: state
-        entity_id: binary_sensor.lumi_lumi_sensor_motion_aq2_7909e107_occupancy
-        state: "off"
-      - condition: time
-        after: '16:00:00'
-        before: '02:30:00'
-      - condition: state
-        entity_id: sun.sun
-        state: below_horizon
-
-- id: 'liveroom_lights_presence_dim_down_when_on_bed'
-  alias: Liveroom lights dimmed down cuz I'm on bed
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.lumi_lumi_sensor_motion_aq2_8df9e007_occupancy
-      to: "off"
-  action:
-    - service: light.turn_on
-      data:
-        rgb_color:
-          - 200
-          - 111
-          - 201
-        brightness: 50
-      target:
-        entity_id: light.home_lights
-  condition:
-    condition: and
-    conditions:
-      - condition: numeric_state
-        entity_id: sensor.lumi_lumi_sensor_motion_aq2_8df9e007_illuminance
-        below: '50'
-      - condition: numeric_state
-        entity_id: sensor.lumi_lumi_sensor_motion_aq2_7909e107_illuminance
-        below: '50'
-      - condition: state
-        entity_id: binary_sensor.lumi_lumi_sensor_motion_aq2_7909e107_occupancy
-        state: "on"
-      - condition: time
-        after: '16:00:00'
-        before: '02:30:00'
-      - condition: state
-        entity_id: sun.sun
-        state: below_horizon
-
-- id: 'lights_off'
-  alias: Turn the lights off the sun rises
-  trigger:
-    - platform: state
-      entity_id: sun.sun
-      from: below_horizon
-      to: above_horizon
-  condition:
-    - condition: time
-      after: '02:30:00'
-      before: '16:30:00'
-  action:
-    - service: light.turn_off
-      target:
-        entity_id: light.home_lights
-
-- id: 'lights_brightness_off'
+- id: "lights_brightness_off"
   alias: Turn the lights off based on room brightness
   trigger:
     - platform: numeric_state
-      entity_id: sensor.lumi_lumi_sensor_motion_aq2_8df9e007_illuminance
-      above: '20'
+      entity_id: sensor.lumi_lumi_sensor_motion_aq2_illuminance
+      above: "60"
+    - platform: numeric_state
+      entity_id: sensor.lumi_lumi_sensor_motion_aq2_illuminance_2
+      above: "60"
   condition:
     - condition: time
-      after: '02:30:00'
-      before: '16:30:00'
+      after: "02:30:00"
+      before: "16:30:00"
   action:
     - service: light.turn_off
       target:
