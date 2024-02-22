@@ -14,6 +14,7 @@ recorder:
   db_url: !secret external_database
   purge_keep_days: 180
 
+media_source:
 # Sun integration w/ elevation values
 
 # Lovelace dedicated configuration file
@@ -82,7 +83,7 @@ stream:
   part_duration: 0.75
   segment_duration: 6
 
-media_player:
+eplayer:
   - platform: smartir
     name: Living room TV
     unique_id: tv
