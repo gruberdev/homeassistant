@@ -83,7 +83,7 @@ stream:
   part_duration: 0.75
   segment_duration: 6
 
-eplayer:
+media_player:
   - platform: smartir
     name: Living room TV
     unique_id: tv

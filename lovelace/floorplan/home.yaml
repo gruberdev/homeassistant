@@ -11,7 +11,20 @@ views:
         show_side_bar: false
         show_app_header: false
         config:
-          image: /config/lovelace/floorplan/home.svg
+          image:
+            - min_width: 0
+              location: /config/lovelace/floorplan/images/default.svg
+              cache: true
+            - min_width: 1024
+              location: /config/lovelace/floorplan/images/default-wide.svg
+              cache: true
+          image_mobile:
+            - min_width: 0
+              location: /config/lovelace/floorplan/images/mobile.svg
+              cache: true
+            - min_width: 1024
+              location: /config/lovelace/floorplan/images/mobile-wide.svg
+              cache: true
           stylesheet: /config/lovelace/floorplan/stylesheet.css
           log_level: info
           console_log_level: info
