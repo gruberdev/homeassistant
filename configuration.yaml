@@ -120,11 +120,6 @@ homeassistant:
   customize: !include_dir_merge_named customize/
   auth_providers:
     - type: homeassistant
-    - type: trusted_networks
-      allow_bypass_login: true
-      trusted_networks:
-        - 192.168.1.0/24
-        - 192.168.0.0/24
 
   # Customize entities matching a pattern
   customize_glob:
@@ -161,6 +156,8 @@ http:
     - 173.245.48.0/20
     - 103.21.244.0/22
     - 103.22.200.0/22
+    - 192.168.1.0/24
+    - 192.168.0.0/24
     - 10.43.0.0/16
     - 10.42.0.0/16
     - 2001:cafe:42:1::/112
