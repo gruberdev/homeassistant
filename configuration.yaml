@@ -123,17 +123,11 @@ homeassistant:
     - type: trusted_networks
       allow_bypass_login: true
       trusted_networks:
-        - 10.43.0.0/16
-        - 2001:cafe:42:1::/112
-        - 10.42.0.0/16
-        - 2001:cafe:42:0::/56
         - 192.168.1.0/24
         - 192.168.0.0/24
         - 10.0.1.0/24
         - fd7a:115c:a1e0:ab12::/64
         # Tailscale network
-        - 100.64.0.0/10
-        - 0.0.0.0/0
         - 127.0.0.1
         - ::1
   # Customize entities matching a pattern
@@ -160,7 +154,6 @@ light:
 api:
 
 http:
-  server_host: 0.0.0.0
   ip_ban_enabled: false
   use_x_forwarded_for: true
   cors_allowed_origins:
@@ -169,10 +162,15 @@ http:
     - https://home.gruber.dev.br
   trusted_proxies:
     - !secret public_ip
-    # Cloudflare Ipv4 IP Ranges
     - 173.245.48.0/20
     - 103.21.244.0/22
     - 103.22.200.0/22
+    - 10.43.0.0/16
+    - 10.42.0.0/16
+    - 2001:cafe:42:1::/112
+    - 2001:cafe:42:0::/56
+    - 100.64.0.0/10
+    # Cloudflare Ipv4 IP Ranges
     - 103.31.4.0/22
     - 141.101.64.0/18
     - 108.162.192.0/18
