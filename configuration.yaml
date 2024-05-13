@@ -125,11 +125,7 @@ homeassistant:
       trusted_networks:
         - 192.168.1.0/24
         - 192.168.0.0/24
-        - 10.0.1.0/24
-        - fd7a:115c:a1e0:ab12::/64
-        # Tailscale network
-        - 127.0.0.1
-        - ::1
+
   # Customize entities matching a pattern
   customize_glob:
     "sensor.lumi_lumi_weather_*_temperature":
@@ -183,7 +179,9 @@ http:
     - 104.24.0.0/14
     - 172.64.0.0/13
     - 131.0.72.0/22
-
+    - fd7a:115c:a1e0:ab12::/64
+    - 127.0.0.1
+    - ::1
 tts:
   - platform: google_translate
 
