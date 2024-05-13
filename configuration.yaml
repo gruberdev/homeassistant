@@ -31,22 +31,22 @@ ffmpeg:
 map:
 # https://www.home-assistant.io/integrations/system_health/
 system_health:
-logger:
-  default: warning
-  logs:
-    custom_components.hacs: error
-    custom_components.smartir: error
-    custom_components.xiaomi_miot: error
-    custom_components.device_tracker: error
-    custom_components.samsungtv_smart: error
-    homeassistant.loader: error
-    homeassistant.const: error
-    homeassistant.components.media_player: error
-    homeassistant.components.alarm_control_panel: error
-    homeassistant.components.climate: error
-    homeassistant.components.humidifier: error
-    homeassistant.components.device_tracker: error
-    homeassistant.helpers.entity: warning
+# logger:
+#   default: warning
+#   logs:
+#     custom_components.hacs: error
+#     custom_components.smartir: error
+#     custom_components.xiaomi_miot: error
+#     custom_components.device_tracker: error
+#     custom_components.samsungtv_smart: error
+#     homeassistant.loader: error
+#     homeassistant.const: error
+#     homeassistant.components.media_player: error
+#     homeassistant.components.alarm_control_panel: error
+#     homeassistant.components.climate: error
+#     homeassistant.components.humidifier: error
+#     homeassistant.components.device_tracker: error
+#     homeassistant.helpers.entity: warning
 
 #View all events in a logbooks
 # logbook:
