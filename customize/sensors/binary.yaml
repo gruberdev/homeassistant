@@ -1,8 +1,8 @@
 # Contact Sensors
-binary_sensor.lumi_lumi_sensor_magnet_aq2_c51b0908_on_off:
+binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_3:
   friendly_name: Bathroom Door
   device_class: door
-binary_sensor.lumi_lumi_sensor_magnet_aq2_on_off:
+binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_2:
   friendly_name: Fridge Door
   device_class: door
 binary_sensor.lumi_lumi_sensor_magnet_aq2_opening:

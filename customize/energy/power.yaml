@@ -1,9 +1,13 @@
 # Electricity Smart Plugs
-sensor.smart_plug_2_power:
-  friendly_name: Computer Plug Power
+sensor.networkenergy_power:
+  friendly_name: Infrastructure First Switch Power
   device_class: power
   unit_of_measurement: "W"
 sensor.smart_plug_power:
-  friendly_name: Infrastructure Plug Power
+  friendly_name: Infrastructure Second Switch Power
+  device_class: power
+  unit_of_measurement: "W"
+sensor.thirdplug_power:
+  friendly_name: Bathroom Switch Power
   device_class: power
   unit_of_measurement: "W"

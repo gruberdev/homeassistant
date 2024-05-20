@@ -1,9 +1,9 @@
 sensor.lumi_lumi_weather_humidity_2:
-  friendly_name: Bathroom Humidity
+  friendly_name: Entry Door Humidity
   device_class: humidity
 sensor.lumi_lumi_weather_humidity:
   friendly_name: Living Room Humidity
   device_class: humidity
 sensor.lumi_lumi_weather_humidity_3:
-  friendly_name: Entry Door Humidity
+  friendly_name: Bathroom Humidity
   device_class: humidity

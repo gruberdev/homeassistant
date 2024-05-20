@@ -1,8 +1,12 @@
-sensor.smart_plug_2_current:
-  friendly_name: Infrastructure Plug Current
+sensor.networkenergy_current:
+  friendly_name: Infrastructure First Switch Current
   device_class: current
   unit_of_measurement: "A"
 sensor.smart_plug_current:
-  friendly_name: Computer Plug Current
+  friendly_name: Infrastructure Second Switch Current
+  device_class: current
+  unit_of_measurement: "A"
+sensor.thirdplug_current:
+  friendly_name: Bathroom Switch Current
   device_class: current
   unit_of_measurement: "A"

@@ -1,8 +1,12 @@
-sensor.smart_plug_2_voltage:
-  friendly_name: Infrastructure Plug Voltage
+sensor.networkenergy_voltage:
+  friendly_name: Infrastructure First Switch Voltage
   device_class: voltage
   unit_of_measurement: "V"
 sensor.smart_plug_voltage:
-  friendly_name: Computer Plug Voltage
+  friendly_name: Infrastructure Second Switch Voltage
+  device_class: voltage
+  unit_of_measurement: "V"
+sensor.thirdplug_power:
+  friendly_name: Infrastructure Second Switch Voltage
   device_class: voltage
   unit_of_measurement: "V"

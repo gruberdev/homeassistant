@@ -1,6 +1,6 @@
 # Temperature Sensors
-sensor.lumi_lumi_weather_ce71e507_temperature:
-  friendly_name: Entry Door Temperature
+sensor.lumi_lumi_weather_temperature_3:
+  friendly_name: Bathroom Temperature
   device_class: temperature
   unit_of_measurement: "°C"
 sensor.lumi_lumi_weather_temperature:
@@ -8,6 +8,6 @@ sensor.lumi_lumi_weather_temperature:
   device_class: temperature
   unit_of_measurement: "°C"
 sensor.lumi_lumi_weather_temperature_2:
-  friendly_name: Bathroom Temperature
+  friendly_name: Entry Door Temperature
   device_class: temperature
   unit_of_measurement: "°C"

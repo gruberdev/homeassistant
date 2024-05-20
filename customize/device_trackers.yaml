@@ -1,9 +1,15 @@
 # Unifi Device Trackers
 device_tracker.uap_nanohd:
-  friendly_name: Unifi AP NanoHD Tracker
+  friendly_name: Unifi AP NanoHD Connectivity
 device_tracker.samsung_tv:
-  friendly_name: Unifi AP Samsung TV connectivity
-device_tracker.usg_3p:
-  friendly_name: Unifi USG connectivity
+  friendly_name: Samsung TV Wifi Connectivity
+device_tracker.uap_ac_lite:
+  friendly_name: Unifi AP Lite connectivity
+device_tracker.unifi_usg4_pro:
+  friendly_name: Unifi USG Firewall Connectivity
 device_tracker.us_8_60w:
-  friendly_name: Unifi controller switch connectivity
+  friendly_name: Unifi controller Switch Connectivity
+device_tracker.broadlink_rm4_pro:
+  friendly_name: Broadlink RM4 Pro
+device_tracker.pixel_8_pro:
+  friendly_name: Google Pixel 8 Pro
