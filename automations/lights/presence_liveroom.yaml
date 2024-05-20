@@ -8,7 +8,7 @@
     condition: and
     conditions:
       - condition: numeric_state
-        entity_id: sensor.lumi_lumi_sensor_motion_aq2_illuminance_2
+        entity_id: sensor.lumi_lumi_sensor_motion_aq2_illuminance
         below: "50"
       - condition: time
         after: "16:00:00"

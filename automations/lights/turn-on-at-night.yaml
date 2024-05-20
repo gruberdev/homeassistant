@@ -39,10 +39,9 @@
   condition:
     - condition: and
       conditions:
-        - condition: numeric_state
-          entity_id: input_number.night_time
-          below: 0.01
-          above: -0.01
+        - condition: state
+          entity_id: sun.sun
+          state: below_horizon
         - condition: state
           entity_id: device_tracker.pixel_8_pro_4
           state: home

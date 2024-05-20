@@ -14,11 +14,11 @@
         seconds: 10
   condition:
     - condition: state
-      entity_id: media_player.samsungtv
+      entity_id: media_player.samsung
       state: "off"
   action:
     - service: media_player.turn_on
       target:
         entity_id:
-          - media_player.samsungtv
+          - media_player.samsung
       data: {}

@@ -16,20 +16,20 @@
     - condition: or
       conditions:
         - condition: state
-          entity_id: media_player.samsungtv
+          entity_id: media_player.samsung
           state: "on"
         - condition: state
-          entity_id: media_player.samsungtv
+          entity_id: media_player.samsung
           state: playing
         - condition: state
-          entity_id: media_player.samsungtv
+          entity_id: media_player.samsung
           state: idle
         - condition: state
-          entity_id: media_player.samsungtv
+          entity_id: media_player.samsung
           state: buffering
   action:
     - service: media_player.volume_mute
       data:
         is_volume_muted: false
       target:
-        entity_id: media_player.samsungtv
+        entity_id: media_player.samsung
