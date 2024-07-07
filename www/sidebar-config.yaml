@@ -7,22 +7,16 @@ order:
     icon: mdi:puzzle
     order: 2
   - new_item: true
-    item: Test
+    item: test
     name: "Home Dashboard"
     href: "/dashboard-test"
     icon: mdi:hexagon-multiple
     order: 3
-  - new_item: true
-    item: Logs
-    bottom: true
-    href: "/config/logs"
-    icon: mdi:math-log
-    order: 4
   - item: developer tools
     name: Dev tools
     icon: mdi:tools
     bottom: true
-    order: 5
+    order: 4
   - item: history
     hide: true
 title: "sidebar"
