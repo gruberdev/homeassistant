@@ -26,5 +26,5 @@ order:
   - item: history
     hide: true
 title: "sidebar"
-sidebar_editable: "no"
+sidebar_editable: false
 styles: ".menu .title { color: red; } a[role="option"] .item-text { color: blue; }"
