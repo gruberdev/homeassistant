@@ -7,7 +7,8 @@ order:
     icon: mdi:puzzle
     order: 2
   - new_item: true
-    item: Dashboard
+    item: Test
+    name: "Home Dashboard"
     href: "/dashboard-test"
     icon: mdi:hexagon-multiple
     order: 3
@@ -24,7 +25,6 @@ order:
     order: 5
   - item: history
     hide: true
-title: sidebar
-sidebar_editable: no
-id: sidebar-default
+title: "sidebar"
+sidebar_editable: "no"
 styles: ".menu .title { color: red; } a[role="option"] .item-text { color: blue; }"
