@@ -74,17 +74,17 @@ styles: |
     font-variation-settings: "slnt" 0;
     font-size: 16px;
   }
-  html {
+  body {
     --sidebar-background-color: #000000 !important;
-    --app-header-background-color: #333333;
-    --text-primary-color: #FFFFFF;
-    --outline-hover-color: #A1FFFF;
+    --app-header-background-color: #333333 !important;
+    --text-primary-color: #FFFFFF !important;
+    --outline-hover-color: #A1FFFF !important;
   }
   ha-sidebar {
     background-color: #000000 !important;
   }
   .menu .title { 
-    display: none;
+    display: none !important;
   }
   a[role='option'] .item-text { 
     color: #A1FFFF; 
