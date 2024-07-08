@@ -64,5 +64,28 @@ exceptions:
     order: []
 id: example
 title: "Homelab"
-sidebar_editable: false
-styles: ".menu .title { color: red; } a[role='option'] .item-text { color: blue; }"
+sidebar_editable: true
+styles: |
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+  body {
+      font-family: "Inter", sans-serif !important;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-variation-settings: "slnt" 0;
+      font-size: 16px;
+  }
+  html{
+    --sidebar-background-color: #000000 !important;
+    --app-header-background-color: #333333;
+    --text-primary-color: #A1FFFF;
+  }
+  ha-sidebar {
+      background-color: #000000 !important;
+  }
+  .menu .title { 
+      display: none;
+  }
+  a[role='option'] .item-text { 
+      color: #A1FFFF; 
+  }
