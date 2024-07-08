@@ -3,7 +3,6 @@ order:
     item: test
     href: "/dashboard-test"
     icon: mdi:earth
-    target: _blank
     order: 0
   - item: overview
     order: 1
@@ -68,24 +67,25 @@ sidebar_editable: true
 styles: |
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
   body {
-      font-family: "Inter", sans-serif !important;
-      font-optical-sizing: auto;
-      font-weight: 400;
-      font-style: normal;
-      font-variation-settings: "slnt" 0;
-      font-size: 16px;
+    font-family: 'Inter', sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+    font-size: 16px;
   }
-  html{
+  html {
     --sidebar-background-color: #000000 !important;
     --app-header-background-color: #333333;
-    --text-primary-color: #A1FFFF;
+    --text-primary-color: #FFFFFF;
+    --outline-hover-color: #A1FFFF;
   }
   ha-sidebar {
-      background-color: #000000 !important;
+    background-color: #000000 !important;
   }
   .menu .title { 
-      display: none;
+    display: none;
   }
   a[role='option'] .item-text { 
-      color: #A1FFFF; 
+    color: #A1FFFF; 
   }
