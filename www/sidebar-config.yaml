@@ -65,4 +65,4 @@ exceptions:
 id: example
 title: "Homelab"
 sidebar_editable: false
-styles: ".menu .title { color: red; } a[role="option"] .item-text { color: blue; }"
+styles: ".menu .title { color: red; } a[role='option'] .item-text { color: blue; }"
