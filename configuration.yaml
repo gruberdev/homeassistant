@@ -149,7 +149,11 @@ light:
       - light.liveroom_3
       - light.liveroom_4
       - light.liveroom_5
-      - light.hallway_*
+      - light.hallway_1
+      - light.hallway_2
+      - light.hallway_3
+      - light.hallway_4
+      - light.hallway_5
 
 api:
 
