@@ -1,11 +1,11 @@
 light.yeelight_color4_0x13f2130d:
-  friendly_name: Kitchen LED Yeelight Lamp
+  friendly_name: Unknown LED Yeelight Lamp
   device_class: light
 light.yeelight_strip8_0x19eba68d:
   friendly_name: Underdesk LED Yeelight Lamp
   device_class: light
 light.yeelight_color4_0x123e1046:
-  friendly_name: Bedroom LED Yeelight Lamp
+  friendly_name: Kitchen LED Yeelight Lamp
   device_class: light
 light.philips_strip3_4a09_light:
   friendly_name: Xiaomi Philips Hue Ambiance
