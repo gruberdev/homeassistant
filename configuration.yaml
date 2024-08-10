@@ -134,7 +134,31 @@ homeassistant:
 
 light:
   - platform: group
-    name: "Home Lights"
+    name: "Hallway Lights"
+    entities:
+      - light.hallway_1
+      - light.hallway_2
+      - light.hallway_3
+      - light.hallway_4
+      - light.hallway_5
+      - light.hallway_6
+
+  - platform: group
+    name: "Liveroom Lights"
+    entities:
+      - light.liveroom_1
+      - light.liveroom_2
+      - light.liveroom_3
+      - light.liveroom_4
+      - light.liveroom_5
+
+  - platform: group
+    name: "Bathroom Lights"
+    entities:
+      - light.bathroom_1
+
+  - platform: group
+    name: "Yeelight"
     entities:
       - light.yeelight_strip8_0x19eba68d
       - light.yeelight_color4_0x123e1046
@@ -143,17 +167,15 @@ light:
       - light.philips_strip3_4a09_light
       - light.yeelink_color4_974a_light
       - light.yeelink_strip8_39e2_light
+
+  - platform: group
+    name: "Home Lights"
+    entities:
       - light.lampada_decor_led_mr16_5w_rgb_cct
-      - light.liveroom_1
-      - light.liveroom_2
-      - light.liveroom_3
-      - light.liveroom_4
-      - light.liveroom_5
-      - light.hallway_1
-      - light.hallway_2
-      - light.hallway_3
-      - light.hallway_4
-      - light.hallway_5
+      - group.yeelight
+      - group.liveroom_lights
+      - group.hallway_lights
+      - group.bathroom_lights
 
 api:
 
