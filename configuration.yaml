@@ -172,10 +172,10 @@ light:
     name: "Home Lights"
     entities:
       - light.lampada_decor_led_mr16_5w_rgb_cct
-      - group.yeelight
-      - group.liveroom_lights
-      - group.hallway_lights
-      - group.bathroom_lights
+      - light.yeelight
+      - light.liveroom_lights
+      - light.hallway_lights
+      - light.bathroom_lights
 
 api:
 
