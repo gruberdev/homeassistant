@@ -136,14 +136,13 @@ light:
   - platform: group
     name: "Home Lights"
     entities:
-      - light.yeelight_strip8_0x19eba68d
+#      - light.yeelight_strip8_0x19eba68d
+#      - light.yeelight_color4_0x13f2130d
+#      - light.yeelink_strip8_39e2_light
+#      - light.yeelight_strip6_0x13f2ddcb
+#      - light.yeelink_color4_974a_light
       - light.yeelight_color4_0x123e1046
-      - light.yeelight_color4_0x13f2130d
-      - light.yeelight_strip6_0x13f2ddcb
       - light.philips_strip3_4a09_light
-      - light.yeelink_color4_974a_light
-      - light.yeelink_strip8_39e2_light
-      - light.lampada_decor_led_mr16_5w_rgb_cct
       - light.liveroom_1
       - light.liveroom_2
       - light.liveroom_3
@@ -154,6 +153,7 @@ light:
       - light.hallway_3
       - light.hallway_4
       - light.hallway_5
+      - light.hallway_6
 
 api:
 
