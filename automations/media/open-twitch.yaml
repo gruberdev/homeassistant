@@ -1,0 +1,66 @@
+- id: "voice_tv_twitch"
+  alias: Open the Twitch app on TV
+  description: A voice command automation that opens Twitch on my TV
+  trigger:
+    - platform: conversation
+      command:
+        - Open Twitch
+        - Open Twitch app
+        - Launch Twitch
+        - I want to watch Twitch
+        - Start Twitch
+        - Show me Twitch
+        - Go to Twitch
+        - Play Twitch
+  condition: []
+  action:
+    - service: remote.send_command
+      target:
+        device_id: a6384d0df1afefd05f1f4b4fa52eb92b
+      data:
+        command: KEY_HOME
+        device: TV
+    - delay:
+        seconds: 1
+    - service: remote.send_command
+      target:
+        device_id: a6384d0df1afefd05f1f4b4fa52eb92b
+      data:
+        command: KEY_RIGHT
+        device: TV
+    - delay:
+        seconds: 0.5
+    - service: remote.send_command
+      target:
+        device_id: a6384d0df1afefd05f1f4b4fa52eb92b
+      data:
+        command: KEY_RIGHT
+        device: TV
+    - delay:
+        seconds: 0.5
+    - service: remote.send_command
+      target:
+        device_id: a6384d0df1afefd05f1f4b4fa52eb92b
+      data:
+        command: KEY_RIGHT
+        device: TV
+      alias: Send right key
+    - delay:
+        seconds: 0.5
+    - service: remote.send_command
+      target:
+        device_id: a6384d0df1afefd05f1f4b4fa52eb92b
+      data:
+        command: KEY_RIGHT
+        device: TV
+      alias: Send right key
+    - delay:
+        seconds: 0.5
+    - service: remote.send_command
+      target:
+        device_id: a6384d0df1afefd05f1f4b4fa52eb92b
+      data:
+        command: KEY_OK
+        device: TV
+      alias: Send OK key
+  mode: single

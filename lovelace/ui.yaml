@@ -86,7 +86,7 @@ views:
               action: more-info
             icon: mdi:speedometer-slow
           - type: entity
-            entity: media_player.samsung_au8000_50_tv_2
+            entity: media_player.tv_au8000_50_tv_2
             icon: mdi:television
             use_entity_picture: false
             content_info: state
