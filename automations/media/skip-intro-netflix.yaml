@@ -1,20 +1,15 @@
-- id: "skip_anime_op_tts"
-  alias: Skip anime opening
-  description: Skips the anime opening when requested
+- id: "skip_anime_op_tts_netflix"
+  alias: Skip anime opening in netflix
+  description: Skips the anime opening when requested in Netflix
   mode: single
   trigger:
     - platform: conversation
       command:
-        - Skip intro
-        - Skip anime intro
-        - Skipe anime trailer
-        - Skip opening anime
-        - Skip opening
-        - Skip intro
-        - Please go ahead and skip it
-        - Go ahead and skip the opening
-        - Skip the opening
-        - Please skip the opening movie
+        - Skip intro netflix
+        - Skip anime intro netflix
+        - Skipe anime trailer netflix
+        - Skip opening netflix
+        - Skip intro netflix
   condition:
     - condition: or
       conditions:
@@ -31,5 +26,5 @@
           entity_id: media_player.tv
           state: buffering
   action:
-    - service: script.skip_anime_opening
+    - service: script.skip_anime_opening_netflix
       data: {}
