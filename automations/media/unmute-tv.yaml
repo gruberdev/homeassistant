@@ -1,11 +1,11 @@
 - id: "unmute_tv_when_tts"
-  alias: Mute TV when TTS
+  alias: Unmute TV when TTS
   description: unmute the TV when OpenWakeDetect stars listening to a command
   mode: single
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.microphone_assist_in_progress
+        - binary_sensor.my_satellite_assist_in_progress
       from: "on"
       to: "off"
       for:

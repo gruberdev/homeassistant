@@ -5,7 +5,7 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.microphone_assist_in_progress
+        - binary_sensor.my_satellite_assist_in_progress
       from: null
       to: "on"
       for:
