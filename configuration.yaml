@@ -182,6 +182,7 @@ light:
 #     - light.yeelink_strip8_39e2_light
       - light.yeelight_color4_0x123e1046
       - light.philips_strip3_4a09_light
+      - light.yeelight_strip6_0x13f2ddcb
 
   - platform: group
     name: "Home Lights"

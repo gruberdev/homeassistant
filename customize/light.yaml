@@ -1,7 +1,7 @@
 light.yeelight_color4_0x13f2130d:
   friendly_name: Unknown LED Yeelight Lamp
   device_class: light
-light.yeelight_strip8_0x19eba68d:
+light.yeelight_strip6_0x13f2ddcb:
   friendly_name: Underdesk LED Yeelight Lamp
   device_class: light
 light.yeelight_color4_0x123e1046:
@@ -10,3 +10,4 @@ light.yeelight_color4_0x123e1046:
 light.philips_strip3_4a09_light:
   friendly_name: Xiaomi Philips Hue Ambiance
   device_class: light
+
