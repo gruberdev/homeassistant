@@ -1,0 +1,26 @@
+{
+    "yaml.schemas": {
+      "file:///toc.schema.json": "/toc\\.yml/i",
+      "https://taskfile.dev/schema.json": [
+        "Taskfile.yml",
+        ".tasks/*.yaml",
+        ".tasks/*.yml",
+        "untitled:Untitled-2"
+      ],
+      "https://json.schemastore.org/homeassistant": [
+        "configuration.yaml",
+        "lovelace.yaml",
+        "scenes.yaml",
+        "automations/**/*.yaml",
+        "customize/**/*.yaml",
+        "scripts/**/*.yaml",
+        "sensors/**/*.yaml",
+        "lovelace/**/*.yaml"
+      ]
+    },
+    "files.associations": {
+        "*.yaml": "home-assistant"
+    },
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false
+}
