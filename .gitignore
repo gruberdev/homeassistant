@@ -16,7 +16,6 @@
 *.sqlite
 .cloud
 testing/*
-.vscode
 .storage
 .google.token
 .uuid
@@ -32,12 +31,8 @@ deps
 icloud
 .cloud
 .storage
-.vscode
-custom_components
 __pycache__
-hacs
 alexa_media
-custom_components
 image
 tts
 secrets
