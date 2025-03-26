@@ -1,0 +1,20 @@
+[submodule "hacs"]
+	path = custom_components/hacs
+	url = https://github.com/hacs/integration
+	branch = main
+[submodule "powercalc"]
+	path = custom_components/powercalc
+	url = https://github.com/bramstroker/homeassistant-powercalc
+	branch = master
+[submodule "xiaomi_miot"]
+	path = custom_components/xiaomi_miot
+	url = https://github.com/al-one/hass-xiaomi-miot
+	branch = master
+[submodule "smartir"]
+	path = custom_components/smartir
+	url = https://github.com/smartHomeHub/SmartIR
+	branch = master
+[submodule "actualbudget"]
+	path = custom_components/actualbudget
+	url = https://github.com/jlvcm/ha-actualbudget.git
+	branch = main
