@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "keesschollaart.vscode-home-assistant",
+    "compulim.indent4to2",
+    "pascalreitermann93.vscode-yaml-sort",
+    "kennylong.kubernetes-yaml-formatter",
+    "jtcontreras90.yaml-path-extractor"
+  ]
+}
