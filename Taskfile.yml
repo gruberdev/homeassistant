@@ -1,0 +1,212 @@
+version: '3'
+
+silent: true
+
+vars:
+  REPOSITORIES:
+  - url: https://github.com/hacs/integration
+    name: hacs
+    branch: main
+  - url: https://github.com/bramstroker/homeassistant-powercalc
+    name: powercalc
+    branch: master
+  - url: https://github.com/al-one/hass-xiaomi-miot
+    name: xiaomi_miot
+    branch: master
+  - url: https://github.com/smartHomeHub/SmartIR
+    name: smartir
+    branch: master
+  - url: https://github.com/jlvcm/ha-actualbudget
+    name: actualbudget
+    branch: main
+  - url: https://github.com/Pirate-Weather/pirate-weather-ha
+    name: pirateweather
+    branch: master
+  - url: https://github.com/carleeno/elevenlabs_tts
+    name: elevenlabs_tts
+    branch: main
+  - url: https://github.com/jcwillox/hass-auto-backup
+    name: auto_backup
+    branch: main
+  - url: https://github.com/UI-Lovelace-Minimalist/UI
+    name: ui_lovelace_minimalist
+    branch: main
+  - url: https://github.com/ollo69/ha-samsungtv-smart
+    name: samsungtv_smart
+    branch: master
+
+  BASE_DIR: custom_components
+
+tasks:
+  default:
+    cmds:
+    - task: clean
+    - task: add
+    - task: update
+
+  add:
+    desc: Adds all repositories from the REPOSITORIES list as sparse submodules.
+    cmds:
+    - for: { var: REPOSITORIES }
+      task: _add-single-component
+      vars:
+        REPO_URL: "{{.ITEM.url}}"
+        REPO_NAME: "{{.ITEM.name}}"
+        REPO_BRANCH: "{{.ITEM.branch | default \"\"}}"
+
+  _add-single-component:
+    internal: true
+    vars:
+      SUBMODULE_PATH: "{{.BASE_DIR}}/{{.REPO_NAME}}"
+      SPARSE_PATH: "custom_components/{{.REPO_NAME}}"
+      LOCAL_SPARSE_CHECKOUT_PATH: "{{.BASE_DIR}}/{{.REPO_NAME}}/custom_components/{{.REPO_NAME}}"
+      INTERMEDIATE_DIR: "{{.BASE_DIR}}/{{.REPO_NAME}}/custom_components"
+      CLONE_CMD: "git clone --filter=blob:none {{if .REPO_BRANCH}}--branch {{.REPO_BRANCH}}{{end}} {{.REPO_URL}} {{.SUBMODULE_PATH}}"
+      SUBMODULE_ADD_CMD: "git submodule add --name {{.REPO_NAME}} {{if .REPO_BRANCH}}--branch {{.REPO_BRANCH}}{{end}} {{.REPO_URL}} {{.SUBMODULE_PATH}}"
+    cmds:
+    - cmd: echo "Adding submodule {{.REPO_NAME}} (Full checkout initially)..."
+      preconditions:
+      - test ! -d {{.SUBMODULE_PATH}}
+    - cmd: '{{.CLONE_CMD}}'
+      preconditions:
+      - test ! -d {{.SUBMODULE_PATH}}
+    - cmd: '{{.SUBMODULE_ADD_CMD}}'
+      preconditions:
+      - test -d {{.SUBMODULE_PATH}}
+    - cmd: git submodule absorbgitdirs
+    - cmd: |
+        cd {{.SUBMODULE_PATH}} && \
+        echo "Setting up sparse checkout in $(pwd) for '{{.SPARSE_PATH}}'..." && \
+        git sparse-checkout init --cone && \
+        git sparse-checkout set "{{.SPARSE_PATH}}"
+    - cmd: cd {{.SUBMODULE_PATH}} && echo "Applying sparse rules (reapply)..." && git sparse-checkout reapply
+    - cmd: |
+        echo "Moving contents from {{.LOCAL_SPARSE_CHECKOUT_PATH}} up to {{.SUBMODULE_PATH}}..."
+        if [ -d "{{.LOCAL_SPARSE_CHECKOUT_PATH}}" ]; then
+          mv {{.LOCAL_SPARSE_CHECKOUT_PATH}}/* {{.SUBMODULE_PATH}}/ && \
+          echo "Removing intermediate directory {{.INTERMEDIATE_DIR}}..." && \
+          rm -rf "{{.INTERMEDIATE_DIR}}" && \
+          echo "Move complete."
+        else
+          echo "WARNING: Expected source path {{.LOCAL_SPARSE_CHECKOUT_PATH}} not found. Skipping move."
+        fi
+      ignore_error: false
+    - cmd: |
+        cd {{.SUBMODULE_PATH}} && \
+        echo "Verifying state AFTER move for {{.REPO_NAME}} in $(pwd)..." && \
+        echo "Running 'git status --short':" && \
+        git status --short && \
+        echo "Listing directory contents (ls -A):" && \
+        ls -A
+      ignore_error: true
+    - cmd: echo "Finished processing {{.REPO_NAME}}."
+
+  update:
+    desc: Updates all component submodules, reapplying sparse checkout AND moving files.
+    cmds:
+    - cmd: git submodule update --init --remote --merge --filter=blob:none
+    - for: { var: REPOSITORIES }
+      task: _update-single-component
+      vars:
+        REPO_NAME: "{{.ITEM.name}}"
+
+  _update-single-component:
+    internal: true
+    vars:
+      SUBMODULE_PATH: "{{.BASE_DIR}}/{{.REPO_NAME}}"
+      SPARSE_PATH: "custom_components/{{.REPO_NAME}}"
+      LOCAL_SPARSE_CHECKOUT_PATH: "{{.BASE_DIR}}/{{.REPO_NAME}}/custom_components/{{.REPO_NAME}}"
+      INTERMEDIATE_DIR: "{{.BASE_DIR}}/{{.REPO_NAME}}/custom_components"
+    cmds:
+    - cmd: |
+        cd {{.SUBMODULE_PATH}} && \
+        echo "Checking/Reapplying sparse config for $PWD..." && \
+        git sparse-checkout list > /dev/null 2>&1; \
+        if [ $? -eq 0 ]; then \
+           echo "Sparse-checkout IS configured. Reapplying..."; \
+           git sparse-checkout reapply; \
+           echo "Moving contents up after update..."; \
+           if [ -d "{{.LOCAL_SPARSE_CHECKOUT_PATH}}" ]; then \
+             echo "Copying contents from {{.LOCAL_SPARSE_CHECKOUT_PATH}} to ./ ..." && \
+             cp -R {{.LOCAL_SPARSE_CHECKOUT_PATH}}/. ./ && \
+             echo "Removing intermediate directory {{.INTERMEDIATE_DIR}}..." && \
+             rm -rf "{{.INTERMEDIATE_DIR}}" && \
+             echo "Move complete for update."
+           else \
+             echo "WARNING: Expected source path {{.LOCAL_SPARSE_CHECKOUT_PATH}} not found after reapply. Skipping move."; \
+           fi \
+        else \
+           echo "Sparse-checkout IS NOT configured for $PWD (checked via git sparse-checkout list)."; \
+        fi
+
+  clean:
+    desc: DANGEROUS! Attempts to remove specified submodules artifacts and reset state.
+    prompt: |
+      This will attempt to forcefully remove submodule directories (working dir AND .git/modules dir)
+      and unregister ALL components listed in the REPOSITORIES variable from Git's index and config.
+      This helps clean up after failed additions but MAY RESULT IN DATA LOSS if components
+      have uncommitted/unpushed changes. Are you absolutely sure? (yes/no)
+    cmds:
+    - for: { var: REPOSITORIES }
+      task: _clean-single-component
+      vars:
+        REPO_NAME: "{{.ITEM.name}}"
+    - echo "Cleanup attempt finished."
+    - cmd: |
+        if [ -f ".gitmodules" ]; then
+          echo "Checking '.gitmodules' status..."
+          if ! git diff --quiet HEAD -- .gitmodules || git ls-files --others --exclude-standard | grep -q '^\.gitmodules$'; then
+            echo "'.gitmodules' appears modified or untracked."
+            echo "You may want to reset it to the last committed state with:"
+            echo "  git checkout HEAD -- .gitmodules"
+            echo "Or manually review and commit changes."
+          else
+            echo "'.gitmodules' seems consistent with the last commit."
+          fi
+        else
+          echo "No '.gitmodules' file found."
+        fi
+
+  _clean-single-component:
+    internal: true
+    vars:
+      SUBMODULE_PATH: "{{.BASE_DIR}}/{{.REPO_NAME}}"
+    cmds:
+    - cmd: git submodule deinit -f -- {{.SUBMODULE_PATH}} || true
+    - cmd: git rm --cached -f {{.SUBMODULE_PATH}} || true
+    - cmd: rm -rf .git/modules/{{.REPO_NAME}} || true
+    - cmd: rm -rf {{.SUBMODULE_PATH}} || true
+    - echo "Finished cleaning artifacts for {{.REPO_NAME}}."
+
+  remove:
+    desc: |
+      DANGEROUS: Rewrites history to remove all traces of submodules.
+      BACKUP YOUR REPOSITORY BEFORE RUNNING THIS!
+      Uses git filter-branch. Consider git-filter-repo as a modern alternative.
+    prompt: |
+      You are about to REWRITE THE HISTORY of this repository to remove submodules.
+      This is destructive and cannot be easily undone.
+      Make sure you have a backup. Are you absolutely sure? (yes/no)
+    cmds:
+    - cmd: git rev-parse --show-toplevel
+    - cmd: |
+        git filter-branch -f --prune-empty --tree-filter '
+          echo "Processing commit $GIT_COMMIT..."
+          set -e
+          if [ -f ".gitmodules" ]; then
+              git submodule deinit --all -f
+              git rm --ignore-unmatch .gitmodules
+              rm -f .gitmodules
+          fi
+          git rm -rf --ignore-unmatch {{.BASE_DIR}}/*/
+          rm -rf {{.BASE_DIR}}/*/
+          find . -name .git -type f -delete || true
+        ' --tag-name-filter cat -- --all
+    - cmd: git for-each-ref --format="%(refname)" refs/original/ | xargs -n 1 git update-ref -d
+    - cmd: git reflog expire --expire=now --all
+    - cmd: git gc --prune=now
+
+  help:
+    desc: Display help listing all available tasks.
+    cmds:
+    - task --list-all
