@@ -16,5 +16,25 @@
 	branch = master
 [submodule "actualbudget"]
 	path = custom_components/actualbudget
-	url = https://github.com/jlvcm/ha-actualbudget.git
+	url = https://github.com/jlvcm/ha-actualbudget
 	branch = main
+[submodule "pirateweather"]
+	path = custom_components/pirateweather
+	url = https://github.com/Pirate-Weather/pirate-weather-ha
+	branch = master
+[submodule "elevenlabs_tts"]
+	path = custom_components/elevenlabs_tts
+	url = https://github.com/carleeno/elevenlabs_tts
+	branch = main
+[submodule "auto_backup"]
+	path = custom_components/auto_backup
+	url = https://github.com/jcwillox/hass-auto-backup
+	branch = main
+[submodule "ui_lovelace_minimalist"]
+	path = custom_components/ui_lovelace_minimalist
+	url = https://github.com/UI-Lovelace-Minimalist/UI
+	branch = main
+[submodule "samsungtv_smart"]
+	path = custom_components/samsungtv_smart
+	url = https://github.com/ollo69/ha-samsungtv-smart
+	branch = master
