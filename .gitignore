@@ -1,54 +1,70 @@
+# Secrets / Credentials - sensitive files that should not be committed
+.google.token
+.homekit.state
+.uuid
+ios.conf
+ip_bans.yaml
+known_devices.yaml
+nest.conf
+phue.conf
+production_auth.json
+secrets
+secrets.yaml
 
-*.DISABLED
-*.pid
-*.xml
-*.csr
+# SSL / Certificates
 *.crt
+*.csr
 *.key
-*.conf
-*.pickle
+
+# Database Files
+*.db
 *.db-journal
 *.db-shm
 *.db-wal
 *.sqlite
-*.log
-*.db
-*.sqlite
-.cloud
-testing/*
-.storage
-.google.token
-.uuid
-core.*
-core
-OZW_Log.txt
-www/community/*
-home-assistant.log
-home-assistant.log.*
-home-assistant_v2
-home-assistant_v2.*
-deps
-icloud
-.cloud
-.storage
-__pycache__
-alexa_media
-image
-tts
-secrets
-known_devices.yaml
-.homekit.state
-phue.conf
-ios.conf
 pyozw.sqlite
-nest.conf
-ipchange.yaml
-ip_bans.yaml
-production_auth.json
+
+# Log Files
 *.log
 *.log.*
-**.log
 *.log.fault
+**.log
 **.log.1
-.history
+OZW_Log.txt
+home-assistant.log
+home-assistant.log.*
+
+# Home Assistant Core / Storage / State
+.cloud
+.storage
+core*
+home-assistant_v2
+home-assistant_v2.*
+ipchange.yaml
+
+# Specific Components / Integrations / Cache
+alexa_media
+deps
+icloud
+image
+tts
+
+# Web / Frontend related (e.g., HACS)
+www/community/*
+
+# Python / Development / Cache
+*.pickle
+__pycache__
+
+# Testing / Reports
 .lh
+testing/*
+
+# Editor Specific (VS Code, etc.)
+.history
+
+# General Patterns / Other Temporary Files
+*.DISABLED
+*.conf
+*.pid
+*.xml
