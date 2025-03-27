@@ -108,7 +108,7 @@ ifttt:
 homeassistant:
   name: Mainframe
   customize: !include_dir_merge_named customize/
-
+  debug: true
   # Customize entities matching a pattern
   customize_glob:
     "sensor.lumi_lumi_weather_*_temperature":
