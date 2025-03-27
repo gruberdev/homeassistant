@@ -91,30 +91,31 @@ system_health:
 
 homeassistant:
   debug: true
+  customize: !include_dir_merge_named customize/
   # Customize entities matching a pattern
-  # customize_glob:
-  #   "sensor.lumi_lumi_weather_*_temperature":
-  #     icon: mdi:thermometer
-  #   "light.*":
-  #     icon: mdi:lightbulb-outline
-  #   "sensor.lumi_lumi_weather_humidity_*":
-  #     icon: mdi:water
-  #   "binary_sensor.lumi_lumi_sensor_motion_aq2_occupancy_*":
-  #     icon: mdi:motion-sensor
-  #   "sensor.*rx_gb*":
-  #     icon: mdi:wifi-arrow-down
-  #     unit_of_measurement: GB
-  #     device_class: data_rate
-  #   "sensor.*tx_gb*":
-  #     icon: mdi:wifi-arrow-up
-  #     unit_of_measurement: GB
-  #     device_class: data_rate
-  #   "sensor.*sleep_confidence*":
-  #     icon: mdi:sleep
-  #     unit_of_measurement: "%"
-  #   "sensor.*battery_level*":
-  #     unit_of_measurement: "%"
-      # device_class: battery
+  customize_glob:
+    "sensor.lumi_lumi_weather_*_temperature":
+      icon: mdi:thermometer
+    "light.*":
+      icon: mdi:lightbulb-outline
+    "sensor.lumi_lumi_weather_humidity_*":
+      icon: mdi:water
+    "binary_sensor.lumi_lumi_sensor_motion_aq2_occupancy_*":
+      icon: mdi:motion-sensor
+    "sensor.*rx_gb*":
+      icon: mdi:wifi-arrow-down
+      unit_of_measurement: GB
+      device_class: data_rate
+    "sensor.*tx_gb*":
+      icon: mdi:wifi-arrow-up
+      unit_of_measurement: GB
+      device_class: data_rate
+    "sensor.*sleep_confidence*":
+      icon: mdi:sleep
+      unit_of_measurement: "%"
+    "sensor.*battery_level*":
+      unit_of_measurement: "%"
+      device_class: battery
 light:
   - platform: group
     name: "Hallway Lights"
