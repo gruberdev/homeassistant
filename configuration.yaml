@@ -19,10 +19,13 @@ media_source:
 lovelace: !include lovelace.yaml
 
 # SmartIR Integration
-smartir:
+# smartir:
+
 # Powercalc Integration
-powercalc:
-  enable_autodiscovery: true
+
+# powercalc:
+#   enable_autodiscovery: true
+
 # FFmpeg Integration
 ffmpeg:
 
@@ -52,58 +55,58 @@ system_health:
 # vultr:
 #   api_key: !secret vultr_api_key
 
-camera:
-  # - name: Home Camera
-  #   platform: ffmpeg
-  #   input: -rtsp_transport tcp -i rtsp://wyze-bridge.homeassistant.svc.cluster.local:8554/studiocam
-  # - name: Hall Camera
-  #   platform: ffmpeg
-  #   input: !secret hall_camera_uri
-  # - name: Camera1
-  #   platform: proxy
-  #   entity_id: camera.wyze_bridge_homeassistant_svc_cluster_local
-  #   max_stream_width: 360
-  #   max_image_width: 720
-  - name: Xiaomi Vacuum Map
-    platform: xiaomi_cloud_map_extractor
-    host: !secret cleaner_ipv4
-    token: !secret cleaner_token
-    username: !secret xiaomi_cloud_username
-    password: !secret xiaomi_cloud_password
-    country: cn
-    draw: ["all"]
-    attributes:
-      - calibration_points
+# camera:
+#   # - name: Home Camera
+#   #   platform: ffmpeg
+#   #   input: -rtsp_transport tcp -i rtsp://wyze-bridge.homeassistant.svc.cluster.local:8554/studiocam
+#   # - name: Hall Camera
+#   #   platform: ffmpeg
+#   #   input: !secret hall_camera_uri
+#   # - name: Camera1
+#   #   platform: proxy
+#   #   entity_id: camera.wyze_bridge_homeassistant_svc_cluster_local
+#   #   max_stream_width: 360
+#   #   max_image_width: 720
+#   - name: Xiaomi Vacuum Map
+#     platform: xiaomi_cloud_map_extractor
+#     host: !secret cleaner_ipv4
+#     token: !secret cleaner_token
+#     username: !secret xiaomi_cloud_username
+#     password: !secret xiaomi_cloud_password
+#     country: cn
+#     draw: ["all"]
+#     attributes:
+#       - calibration_points
 
 stream:
   ll_hls: true
   part_duration: 0.75
   segment_duration: 6
 
-media_player:
-  - platform: smartir
-    name: Living room TV
-    unique_id: tv
-    device_code: 1061
-    controller_data: remote.rm4_pro
-    power_sensor: binary_sensor.tv_power
-  - platform: samsungtv_tizen
-    host: !secret tv_ipv4
-    mac: !secret tv_mac
-    app_list: '{"Jellyfin": "AprZAARz4r.Jellyfin", "Twitch": "3202203026841", "Crunchyroll": "qXuEoRvlCp.Crunchyroll"}'
+# media_player:
+#   - platform: smartir
+#     name: Living room TV
+#     unique_id: tv
+#     device_code: 1061
+#     controller_data: remote.rm4_pro
+#     power_sensor: binary_sensor.tv_power
+#   - platform: samsungtv_tizen
+#     host: !secret tv_ipv4
+#     mac: !secret tv_mac
+#     app_list: '{"Jellyfin": "AprZAARz4r.Jellyfin", "Twitch": "3202203026841", "Crunchyroll": "qXuEoRvlCp.Crunchyroll"}'
 
-climate:
-  - platform: smartir
-    name: Home AC
-    unique_id: ac
-    device_code: 1180
-    controller_data: remote.rm4_pro
-    temperature_sensor: sensor.entrydoor_weather_temperature_3
-    humidity_sensor: sensor.entrydoor_weather_humidity_3
-    power_sensor: binary_sensor.ac_power
+# climate:
+#   - platform: smartir
+#     name: Home AC
+#     unique_id: ac
+#     device_code: 1180
+#     controller_data: remote.rm4_pro
+#     temperature_sensor: sensor.entrydoor_weather_temperature_3
+#     humidity_sensor: sensor.entrydoor_weather_humidity_3
+#     power_sensor: binary_sensor.ac_power
 
-ifttt:
-  key: !secret ifttt_api_key
+# ifttt:
+#   key: !secret ifttt_api_key
 
 homeassistant:
   name: Mainframe
@@ -195,7 +198,6 @@ http:
     - 10.43.0.0/16
     - 10.42.0.0/16
     - 2001:cafe:42:1::/112
-    - 2001:cafe:42:0::/56
     - 100.64.0.0/10
     # Cloudflare Ipv4 IP Ranges
     - 103.31.4.0/22
@@ -211,8 +213,6 @@ http:
     - 172.64.0.0/13
     - 131.0.72.0/22
     - fd7a:115c:a1e0:ab12::/64
-    - 127.0.0.1
-    - ::1
 tts:
   - platform: google_translate
 
