@@ -107,16 +107,7 @@ ifttt:
 
 homeassistant:
   name: Mainframe
-  latitude: !secret ha_latitude
-  longitude: !secret ha_longitude
-  elevation: !secret ha_elevation
-  unit_system: metric
-  temperature_unit: C
-  time_zone: America/Sao_Paulo
-  currency: BRL
   customize: !include_dir_merge_named customize/
-  auth_providers:
-    - type: homeassistant
 
   # Customize entities matching a pattern
   customize_glob:
