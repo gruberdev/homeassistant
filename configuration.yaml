@@ -37,32 +37,17 @@ system_health:
 #View all events in a logbooks
 # logbook:
 
-# Vultr VPS Cloud Integration
-# vultr:
-#   api_key: !secret vultr_api_key
-
-# camera:
-#   # - name: Home Camera
-#   #   platform: ffmpeg
-#   #   input: -rtsp_transport tcp -i rtsp://wyze-bridge.homeassistant.svc.cluster.local:8554/studiocam
-#   # - name: Hall Camera
-#   #   platform: ffmpeg
-#   #   input: !secret hall_camera_uri
-#   # - name: Camera1
-#   #   platform: proxy
-#   #   entity_id: camera.wyze_bridge_homeassistant_svc_cluster_local
-#   #   max_stream_width: 360
-#   #   max_image_width: 720
-#   - name: Xiaomi Vacuum Map
-#     platform: xiaomi_cloud_map_extractor
-#     host: !secret cleaner_ipv4
-#     token: !secret cleaner_token
-#     username: !secret xiaomi_cloud_username
-#     password: !secret xiaomi_cloud_password
-#     country: cn
-#     draw: ["all"]
-#     attributes:
-#       - calibration_points
+camera:
+  - name: Xiaomi Vacuum Map
+    platform: xiaomi_cloud_map_extractor
+    host: !secret cleaner_ipv4
+    token: !secret cleaner_token
+    username: !secret xiaomi_cloud_username
+    password: !secret xiaomi_cloud_password
+    country: cn
+    draw: ["all"]
+    attributes:
+      - calibration_points
 
 # media_player:
 #   - platform: smartir
@@ -76,15 +61,15 @@ system_health:
 #     mac: !secret tv_mac
 #     app_list: '{"Jellyfin": "AprZAARz4r.Jellyfin", "Twitch": "3202203026841", "Crunchyroll": "qXuEoRvlCp.Crunchyroll"}'
 
-# climate:
-#   - platform: smartir
-#     name: Home AC
-#     unique_id: ac
-#     device_code: 1180
-#     controller_data: remote.rm4_pro
-#     temperature_sensor: sensor.entrydoor_weather_temperature_3
-#     humidity_sensor: sensor.entrydoor_weather_humidity_3
-#     power_sensor: binary_sensor.ac_power
+climate:
+  - platform: smartir
+    name: Home AC
+    unique_id: ac
+    device_code: 1180
+    controller_data: remote.rm4_pro
+    temperature_sensor: sensor.entrydoor_weather_temperature_3        
+    humidity_sensor: sensor.entrydoor_weather_humidity_3
+    power_sensor: binary_sensor.ac_power
 
 # ifttt:
 #   key: !secret ifttt_api_key
@@ -199,18 +184,17 @@ frontend:
   themes: !include_dir_merge_named themes
   # extra_module_url:
   #   - /hacsfiles/custom-sidebar/custom-sidebar-yaml.js
-# notify:
-#   - platform: ios
-#   - name: "smtp2go"
-#     platform: smtp
-#     server: !secret smtp_server
-#     port: 8025
-#     timeout: 60
-#     sender: !secret smtp_sender
-#     encryption: starttls
-#     username: !secret smtp_username
-#     password: !secret smtp_password
-#     recipient:
-#       - !secret smtp_recipient1
-#       - !secret smtp_recipient2
-#     sender_name: "Home Assistant"
+notify:
+  - name: "smtp2go"
+    platform: smtp
+    server: !secret smtp_server
+    port: 8025
+    timeout: 60
+    sender: !secret smtp_sender
+    encryption: starttls
+    username: !secret smtp_username
+    password: !secret smtp_password
+    recipient:
+      - !secret smtp_recipient1
+      - !secret smtp_recipient2
+    sender_name: "Home Assistant"
