@@ -8,14 +8,6 @@
   users:
     - rpgruber
 
-- platform: twitch
-  client_id: !secret twitch_client_id
-  client_secret: !secret twitch_client_secret
-  token: !secret twitch_token
-  channels:
-    - xqc
-    - hasanabi
-
 - platform: unifigateway
   host: !secret unifi_host
   port: 8443
