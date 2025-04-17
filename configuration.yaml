@@ -12,6 +12,7 @@ lovelace: !include lovelace.yaml
 # powercalc:
 #   enable_autodiscovery: true
 
+expose_camera_stream_source:
 # FFmpeg Integration
 ffmpeg:
 
