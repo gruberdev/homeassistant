@@ -149,6 +149,8 @@ light:
       - light.hallway_lights
 #      - light.bathroom_lights
 http:
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
   ip_ban_enabled: false
   use_x_forwarded_for: true
   trusted_proxies:
