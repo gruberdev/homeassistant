@@ -184,19 +184,19 @@ script: !include_dir_merge_named scripts/
 scene: !include scenes.yaml
 frontend:
   themes: !include_dir_merge_named themes
-  # extra_module_url:
-  #   - /hacsfiles/custom-sidebar/custom-sidebar-yaml.js
-# notify:
-#   - name: "smtp2go"
-#     platform: smtp
-#     server: !secret smtp_server
-#     port: 8025
-#     timeout: 60
-#     sender: !secret smtp_sender
-#     encryption: starttls
-#     username: !secret smtp_username
-#     password: !secret smtp_password
-#     recipient:
-#       - !secret smtp_recipient1
-#       - !secret smtp_recipient2
-#     sender_name: "Home Assistant"
+  extra_module_url:
+    - /hacsfiles/custom-sidebar/custom-sidebar-yaml.js
+notify:
+  - name: "smtp2go"
+    platform: smtp
+    server: !secret smtp_server
+    port: 8025
+    timeout: 60
+    sender: !secret smtp_sender
+    encryption: starttls
+    username: !secret smtp_username
+    password: !secret smtp_password
+    recipient:
+      - !secret smtp_recipient1
+      - !secret smtp_recipient2
+    sender_name: "Home Assistant"
